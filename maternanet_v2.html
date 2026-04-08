@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maternanet Africa — Strategic Document v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1410;
+  --ink2: #3D342C;
+  --ink3: #6B5F55;
+  --ink4: #9E9189;
+  --page: #FAF7F2;
+  --page2: #F2EDE4;
+  --page3: #E8DFD2;
+  --border: rgba(61,52,44,0.12);
+  --border2: rgba(61,52,44,0.2);
+  --plum: #5C2D6B;
+  --plum-light: #EDE4F2;
+  --plum-mid: rgba(92,45,107,0.15);
+  --teal: #1A6B5C;
+  --teal-light: #E2F0ED;
+  --teal-mid: rgba(26,107,92,0.12);
+  --amber: #8C5A00;
+  --amber-light: #FDF3E0;
+  --amber-mid: rgba(140,90,0,0.1);
+  --coral: #7A2E2E;
+  --coral-light: #F8EDED;
+  --coral-mid: rgba(122,46,46,0.1);
+  --blue: #1E4A7A;
+  --blue-light: #E4EDF8;
+  --blue-mid: rgba(30,74,122,0.1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--page);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  line-height:1.7;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--page2);}
+::-webkit-scrollbar-thumb{background:var(--plum);border-radius:2px;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,247,242,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;
+  height:50px;padding:0 2rem;gap:0;
+}
+.nav-brand{
+  font-family:'Fraunces',serif;
+  font-size:15px;font-weight:600;
+  color:var(--plum);
+  margin-right:2.5rem;white-space:nowrap;
+  letter-spacing:.01em;
+}
+.nav-links{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{
+  font-size:11.5px;color:var(--ink4);font-weight:500;
+  text-decoration:none;padding:0 13px;height:50px;
+  display:flex;align-items:center;letter-spacing:.03em;
+  border-bottom:2px solid transparent;transition:all .18s;
+  white-space:nowrap;
+}
+.nav-link:hover{color:var(--ink2);}
+.nav-link.active{color:var(--plum);border-bottom-color:var(--plum);}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.nav-badge{
+  font-size:10px;font-weight:500;letter-spacing:.07em;
+  padding:2px 9px;border-radius:20px;
+  background:var(--plum-light);color:var(--plum);
+  border:1px solid rgba(92,45,107,0.2);
+}
+.nav-ver{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink4);}
+
+/* LAYOUT */
+.page{max-width:1080px;margin:0 auto;padding:70px 2rem 6rem;}
+
+/* HERO */
+.hero{
+  padding:72px 0 56px;
+  border-bottom:1px solid var(--border2);
+  margin-bottom:60px;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--plum);margin-bottom:20px;
+}
+.hero-eyebrow::before{
+  content:'';width:24px;height:1px;background:var(--plum);
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(34px,5.5vw,62px);
+  font-weight:700;line-height:1.05;
+  letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:16px;
+}
+.hero h1 em{color:var(--plum);font-style:italic;}
+.hero-deck{
+  font-size:17px;font-weight:300;color:var(--ink3);
+  max-width:620px;line-height:1.75;margin-bottom:32px;
+}
+.north-star{
+  background:var(--plum);
+  border-radius:10px;
+  padding:20px 24px;
+  max-width:700px;
+  margin-bottom:40px;
+}
+.north-star .ns-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-bottom:8px;
+}
+.north-star p{font-size:15px;color:#fff;line-height:1.6;font-weight:400;}
+
+.kpi-strip{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:1px;background:var(--border2);
+  border:1px solid var(--border2);border-radius:10px;
+  overflow:hidden;
+}
+.kpi-item{background:var(--page);padding:18px 16px;}
+.kpi-item .kv{
+  font-family:'Fraunces',serif;
+  font-size:26px;font-weight:600;color:var(--ink);
+  line-height:1;margin-bottom:3px;
+}
+.kpi-item .kv sup{font-size:14px;color:var(--ink3);font-weight:400;}
+.kpi-item .kl{font-size:11px;color:var(--ink4);line-height:1.35;}
+
+/* SECTION */
+.section{margin-bottom:64px;}
+.section-head{
+  display:flex;align-items:baseline;gap:14px;
+  margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--border2);
+}
+.sec-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;color:var(--plum);letter-spacing:.1em;
+}
+.sec-title{
+  font-family:'Fraunces',serif;
+  font-size:22px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.sec-aside{
+  font-size:12.5px;color:var(--ink4);margin-left:auto;
+  max-width:280px;text-align:right;line-height:1.4;
+}
+
+/* CALLOUT */
+.callout{
+  background:var(--page2);
+  border:1px solid var(--border2);
+  border-left:3px solid var(--plum);
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;
+  font-size:13.5px;color:var(--ink2);line-height:1.65;
+  margin:16px 0;
+}
+.callout strong{color:var(--plum);}
+.callout.warn{border-left-color:var(--amber);}
+.callout.warn strong{color:var(--amber);}
+.callout.fix{border-left-color:var(--teal);}
+.callout.fix strong{color:var(--teal);}
+.callout.danger{border-left-color:var(--coral);}
+.callout.danger strong{color:var(--coral);}
+
+/* CARDS */
+.card{
+  background:var(--page);
+  border:1px solid var(--border2);
+  border-radius:10px;
+  padding:18px 20px;
+}
+.card-sm{
+  background:var(--page2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:13px 15px;
+}
+
+/* GRID UTILS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;}
+
+/* TAG */
+.tag{
+  display:inline-block;font-size:10px;font-weight:500;
+  padding:2px 8px;border-radius:4px;
+  font-family:'DM Mono',monospace;letter-spacing:.05em;
+}
+.t-plum{background:var(--plum-light);color:var(--plum);}
+.t-teal{background:var(--teal-light);color:var(--teal);}
+.t-amber{background:var(--amber-light);color:var(--amber);}
+.t-coral{background:var(--coral-light);color:var(--coral);}
+.t-blue{background:var(--blue-light);color:var(--blue);}
+.t-gray{background:var(--page3);color:var(--ink3);}
+
+/* MATH BOX */
+.math-box{
+  background:var(--page2);
+  border:1px solid var(--border2);
+  border-radius:10px;overflow:hidden;
+  margin-bottom:14px;
+}
+.math-head{
+  background:var(--ink);
+  padding:11px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.math-head .mh-title{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,0.8);
+}
+.math-head .mh-tag{
+  font-size:10px;letter-spacing:.1em;
+  color:rgba(255,255,255,0.4);
+  font-family:'DM Mono',monospace;
+}
+.math-body{padding:18px 20px;}
+.eq{
+  font-family:'DM Mono',monospace;
+  font-size:12.5px;color:var(--teal);
+  background:#fff;
+  border:1px solid var(--border2);
+  padding:12px 16px;border-radius:6px;
+  margin:10px 0;line-height:2;
+}
+.eq .cm{color:var(--ink4);}
+.eq .hi{color:var(--plum);font-weight:500;}
+.eq .ok{color:var(--teal);}
+.eq .bad{color:var(--coral);}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink4);padding:10px 14px;text-align:left;
+  background:var(--page2);border-bottom:1px solid var(--border2);
+}
+.data-table td{
+  padding:11px 14px;border-bottom:1px solid var(--border);
+  color:var(--ink2);vertical-align:middle;
+}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr.hl td{background:var(--plum-light);}
+.data-table tr.hl td:first-child{border-left:2px solid var(--plum);padding-left:12px;}
+.data-table td .mono{
+  font-family:'DM Mono',monospace;color:var(--ink);
+  font-size:13.5px;font-weight:500;
+}
+.data-table td .bar-w{display:flex;align-items:center;gap:8px;}
+.data-table td .bar{flex:1;height:4px;border-radius:2px;background:var(--page3);}
+.data-table td .bar-f{height:4px;border-radius:2px;background:var(--plum);}
+
+/* METRIC CARD */
+.metric{background:var(--page2);border-radius:8px;padding:14px 16px;}
+.metric .mv{
+  font-family:'Fraunces',serif;
+  font-size:26px;font-weight:600;color:var(--ink);
+  line-height:1;margin-bottom:3px;
+}
+.metric .ml{font-size:11px;color:var(--ink4);}
+
+/* PILLAR CARD */
+.pillar{
+  background:var(--page);
+  border:1px solid var(--border2);
+  border-radius:10px;
+  overflow:hidden;
+}
+.pillar-head{
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+}
+.pillar-body{padding:16px 18px;}
+.pillar-body p{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:8px;}
+.pillar-body p:last-child{margin-bottom:0;}
+.pillar-item{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:12.5px;color:var(--ink2);
+  padding:7px 0;border-top:1px solid var(--border);
+}
+.pillar-item:first-of-type{border-top:none;}
+.pillar-dot{
+  width:5px;height:5px;border-radius:50%;
+  flex-shrink:0;margin-top:6px;
+}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:10px;bottom:10px;
+  width:1px;background:var(--border2);
+}
+.tl-block{position:relative;margin-bottom:28px;}
+.tl-block::before{
+  content:'';position:absolute;left:-22px;top:14px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--page);border:2px solid var(--border2);
+}
+.tl-block.p0::before{background:var(--blue);border-color:var(--blue);}
+.tl-block.p1::before{background:var(--teal);border-color:var(--teal);}
+.tl-block.p2::before{background:var(--plum);border-color:var(--plum);}
+.tl-block.p3::before{background:var(--amber);border-color:var(--amber);}
+.tl-inner{
+  background:var(--page);
+  border:1px solid var(--border2);
+  border-radius:10px;overflow:hidden;
+}
+.tl-head{
+  background:var(--page2);
+  border-bottom:1px solid var(--border);
+  padding:13px 18px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  cursor:pointer;user-select:none;
+}
+.tl-head:hover{background:var(--page3);}
+.tl-name{
+  font-family:'Fraunces',serif;
+  font-size:15px;font-weight:600;color:var(--ink);
+}
+.tl-window{
+  font-size:11px;color:var(--ink4);margin-left:auto;
+  font-family:'DM Mono',monospace;
+}
+.tl-toggle{color:var(--ink4);font-size:11px;margin-left:4px;}
+.tl-body{
+  padding:18px;
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.tl-body.collapsed{display:none;}
+.tl-col h5{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink4);margin-bottom:8px;
+}
+.tl-item{
+  background:var(--page2);border:1px solid var(--border);
+  border-radius:8px;padding:11px 13px;margin-bottom:7px;
+}
+.tl-item h6{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.tl-item p{font-size:12px;color:var(--ink3);line-height:1.5;}
+.tl-metrics{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+}
+.tl-m{
+  background:var(--page2);border:1px solid var(--border);
+  border-radius:8px;padding:11px;text-align:center;
+}
+.tl-m .tmv{
+  font-family:'Fraunces',serif;
+  font-size:20px;font-weight:600;color:var(--ink);margin-bottom:2px;
+}
+.tl-m .tml{font-size:10.5px;color:var(--ink4);}
+
+/* COMPARISON */
+.compare-row{
+  display:grid;grid-template-columns:200px 1fr 1fr;
+  gap:0;font-size:12.5px;
+  border-bottom:1px solid var(--border);
+}
+.compare-row:last-child{border-bottom:none;}
+.compare-row .cr-label{
+  padding:11px 14px;color:var(--ink3);
+  font-weight:500;font-size:12px;
+  background:var(--page2);
+  border-right:1px solid var(--border);
+  display:flex;align-items:flex-start;
+}
+.compare-row .cr-old{
+  padding:11px 14px;color:var(--coral);
+  border-right:1px solid var(--border);
+  background:var(--coral-light);
+  font-size:12px;line-height:1.5;
+}
+.compare-row .cr-new{
+  padding:11px 14px;color:var(--teal);
+  background:var(--teal-light);
+  font-size:12px;line-height:1.5;
+}
+.compare-head{
+  display:grid;grid-template-columns:200px 1fr 1fr;
+  gap:0;
+  background:var(--ink);
+  border-radius:8px 8px 0 0;
+  overflow:hidden;
+}
+.compare-head div{
+  padding:9px 14px;
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.6);
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.compare-head div:last-child{border-right:none;}
+.compare-wrap{
+  border:1px solid var(--border2);
+  border-radius:10px;overflow:hidden;margin-bottom:16px;
+}
+
+/* RISK TABLE */
+.risk-row{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--border);
+}
+.risk-row:last-child{border-bottom:none;}
+.risk-pill{
+  font-family:'DM Mono',monospace;
+  font-size:10px;font-weight:500;letter-spacing:.05em;
+  padding:3px 9px;border-radius:4px;
+  min-width:68px;text-align:center;margin-top:2px;flex-shrink:0;
+}
+.risk-body h5{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.risk-body p{font-size:12px;color:var(--ink3);line-height:1.5;margin-bottom:3px;}
+.risk-fix{font-size:12px;color:var(--teal);}
+.risk-fix::before{content:'→ ';}
+
+/* PROOF CARD */
+.proof-number{
+  font-family:'Fraunces',serif;
+  font-size:48px;font-weight:700;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border2);margin:48px 0;}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border2);
+  padding:24px 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'DM Mono',monospace;font-size:10.5px;color:var(--ink4);
+  letter-spacing:.05em;
+}
+footer .f-brand{color:var(--plum);font-weight:500;}
+
+/* CHART AREA */
+.bar-chart{width:100%;}
+.bc-row{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:8px;font-size:12px;
+}
+.bc-label{min-width:90px;color:var(--ink3);text-align:right;font-size:11.5px;}
+.bc-track{flex:1;height:8px;background:var(--page3);border-radius:4px;}
+.bc-fill{height:8px;border-radius:4px;transition:width .8s ease;}
+.bc-val{min-width:50px;color:var(--ink);font-weight:500;font-size:12px;font-family:'DM Mono',monospace;}
+
+/* FLYWHEEL */
+.flywheel{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:1px solid var(--border2);border-radius:10px;overflow:hidden;
+  margin-bottom:16px;
+}
+.fw-item{
+  padding:16px 14px;border-right:1px solid var(--border);
+  position:relative;
+}
+.fw-item:last-child{border-right:none;}
+.fw-item::after{
+  content:'→';
+  position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  color:var(--ink4);font-size:12px;z-index:1;
+}
+.fw-item:last-child::after{content:'';}
+.fw-num{
+  font-family:'Fraunces',serif;
+  font-size:32px;font-weight:300;
+  color:var(--page3);line-height:1;margin-bottom:8px;
+}
+.fw-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px;}
+.fw-sub{font-size:11.5px;color:var(--ink4);line-height:1.4;}
+
+/* CONSENT ARCH */
+.consent-step{
+  display:flex;gap:14px;
+  padding:12px 0;border-bottom:1px solid var(--border);
+}
+.consent-step:last-child{border-bottom:none;}
+.cs-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;color:var(--plum);
+  min-width:24px;margin-top:1px;
+}
+.cs-body h6{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.cs-body p{font-size:12px;color:var(--ink3);line-height:1.5;}
+
+/* ANIM */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fa{animation:fadeUp .5s ease both;}
+.fa-2{animation:fadeUp .5s ease .1s both;}
+.fa-3{animation:fadeUp .5s ease .2s both;}
+
+/* RESP */
+@media(max-width:720px){
+  .kpi-strip{grid-template-columns:repeat(2,1fr);}
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr;}
+  .tl-body{grid-template-columns:1fr;}
+  .tl-metrics{grid-template-columns:repeat(2,1fr);}
+  .flywheel{grid-template-columns:1fr 1fr;}
+  .compare-row,.compare-head{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Maternanet Africa</div>
+  <div class="nav-links">
+    <a class="nav-link active" href="#north-star">North Star</a>
+    <a class="nav-link" href="#problem">Problem</a>
+    <a class="nav-link" href="#solution">Solution</a>
+    <a class="nav-link" href="#chp-ops">CHP Ops</a>
+    <a class="nav-link" href="#data">Data Foundation</a>
+    <a class="nav-link" href="#path-1m">Path to 1M</a>
+    <a class="nav-link" href="#revenue">Revenue</a>
+    <a class="nav-link" href="#phases">Phases</a>
+    <a class="nav-link" href="#risks">Risks</a>
+    <a class="nav-link" href="#team">Team</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-ver">v2.0 · Apr 2026</span>
+    <span class="nav-badge">INTERNAL</span>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- HERO -->
+<section id="north-star" class="hero">
+  <div class="hero-eyebrow fa">Maternanet Africa Ltd. · Nairobi, Kenya</div>
+  <h1 class="fa-2">Predictive care,<br>delivered at the <em>last mile.</em></h1>
+  <p class="hero-deck fa-3">We build the intelligence layer for maternal health — turning Community Health Promoters into predictive care networks, and transforming every household visit into a structured clinical event that compounds into infrastructure.</p>
+
+  <div class="north-star fa-3" style="animation-delay:.3s">
+    <div class="ns-label">North Star — 2035</div>
+    <p>Own the longitudinal health record of 5 million East African women such that no pharmaceutical company, insurer, or government ministry can reach this population at clinical-grade precision without Maternanet's network. The gateway is maternal care. The destination is the operating system for women's health.</p>
+  </div>
+
+  <div class="kpi-strip" style="animation:fadeUp .5s ease .4s both">
+    <div class="kpi-item">
+      <div class="kv">77<sup>%</sup></div>
+      <div class="kl">6-month retention, active mothers (validated)</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kv">11<sup>K</sup></div>
+      <div class="kl">Mothers served across 4 counties, 33+ clinics</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kv">410</div>
+      <div class="kl">Active Digital Doulas deployed today</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kv">79<sup>%</sup></div>
+      <div class="kl">Recall — high-risk pregnancies identified early</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kv">+21<sup>pp</sup></div>
+      <div class="kl">ANC attendance improvement vs. baseline</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="section">
+  <div class="section-head">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">The Problem</h2>
+    <span class="sec-aside">Three compounding failures, one preventable crisis</span>
+  </div>
+
+  <div class="callout">
+    In Africa, approximately 530 mothers die every day during pregnancy or childbirth — more than malaria, HIV, and tuberculosis combined. With 454 maternal deaths per 100,000 live births, Africa's rate is 5× the global average. <strong>Up to 60% of high-risk pregnancies go undetected until an emergency occurs.</strong> The problem is not absence of care — it is absence of intelligence at the moment care is delivered.
+  </div>
+
+  <div class="g3" style="margin-bottom:16px">
+    <div class="pillar">
+      <div class="pillar-head">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="tag t-coral">Clinical Failure</span>
+        </div>
+        <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink)">Late detection</div>
+      </div>
+      <div class="pillar-body">
+        <p>60% of high-risk pregnancies remain invisible until emergency presentation. The Three-Delays framework identifies decision, reach, and receipt as the dominant mortality drivers — all addressable at the community level before the facility bottleneck.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-head">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="tag t-amber">Systemic Failure</span>
+        </div>
+        <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink)">Unnecessary burden</div>
+      </div>
+      <div class="pillar-body">
+        <p>For every 1,000 pregnancies, at least 150 escalate to obstetric emergency care — which costs 4.5× more than a normal birth. Unnecessary referrals from undetected low-risk pregnancies clog tertiary hospitals and consume resources from genuinely critical cases.</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-head">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <span class="tag t-blue">Economic Failure</span>
+        </div>
+        <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink)">Catastrophic cost</div>
+      </div>
+      <div class="pillar-body">
+        <p>Over 85% of maternal healthcare costs are paid out-of-pocket. When emergencies strike, families sell assets or borrow at predatory rates — pushing households into poverty precisely when a new life should bring opportunity. Every maternal death prevented generates $50,000+ in economic value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="section">
+  <div class="section-head">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Our Solution — Three Pillars of Impact</h2>
+    <span class="sec-aside">Predict. Connect. Finance. In that order.</span>
+  </div>
+
+  <div class="callout fix">
+    <strong>Architectural principle:</strong> The three pillars are not independent features — they are a sequence. Prediction only works with high-quality data. High-quality data only flows if CHPs have a tool that genuinely reduces their burden. Financing only scales safely once prediction has sufficient precision to justify a credit event. The sequence is non-negotiable.
+  </div>
+
+  <!-- PILLAR 1 -->
+  <div class="card" style="margin-bottom:14px;border-left:3px solid var(--plum)">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+      <div>
+        <span class="tag t-plum" style="margin-bottom:8px;display:inline-block">Pillar 1 · Predict</span>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink)">Composite Women's Health Index™</div>
+        <div style="font-size:13px;color:var(--ink3);margin-top:3px">AI-powered predictive risk scoring — not a digital twin, a validated clinical model</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div class="metric" style="min-width:80px;text-align:center">
+          <div class="mv">79%</div>
+          <div class="ml">Recall</div>
+        </div>
+        <div class="metric" style="min-width:80px;text-align:center">
+          <div class="mv">81%</div>
+          <div class="ml">Precision</div>
+        </div>
+        <div class="metric" style="min-width:80px;text-align:center">
+          <div class="mv">+19pp</div>
+          <div class="ml">vs WHO checklist</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn" style="margin-bottom:14px">
+      <strong>Naming correction applied:</strong> Previous versions used "Digital Twin Technology" to describe the risk model. This has been corrected. A digital twin requires real-time bidirectional sync and simulation capability against a physical counterpart. The CWHI™ is a composite ML risk model trained on 85 structured variables — which is the precise, honest, and commercially stronger description. Clinical partners and insurance underwriters will verify this distinction. The CWHI™ framing is what earns their trust.
+    </div>
+
+    <div class="g3" style="margin-bottom:12px">
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">47 CLINICAL VARIABLES</div>
+        <div style="font-size:12px;color:var(--ink2);line-height:1.5">BP at each visit · fundal height · MUAC · haemoglobin · urinalysis · foetal heart rate · parity · gravidity · gestational age · birth weight (prior) · mode of delivery (prior) · ANC visit count · referral history</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">23 SOCIOECONOMIC VARIABLES</div>
+        <div style="font-size:12px;color:var(--ink2);line-height:1.5">Collected at intake via 8-question USSD or verbal survey: household asset index · food security score · education level · partner employment · distance to nearest facility · transport access · prior healthcare utilisation</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">15 ENVIRONMENTAL VARIABLES</div>
+        <div style="font-size:12px;color:var(--ink2);line-height:1.5">Auto-populated from ward-level and facility catchment data: altitude · water source type · sanitation access · proximity to Level 4+ facility · county malaria burden · drought / climate stress index</div>
+      </div>
+    </div>
+
+    <div class="callout fix" style="font-size:12.5px">
+      <strong>Collection architecture:</strong> Clinical variables are captured by the CHP at every visit via the mobile tool (Bluetooth BP cuff, MUAC tape, pulse oximeter — all synced to app). Socioeconomic variables are collected once at registration via a 5-minute USSD intake or voice-guided form — not at every visit. Environmental variables are pre-loaded by ward from county DHIS2 data and updated quarterly. No single visit captures all 85 variables; the record builds over the pregnancy arc. Completeness target: ≥80% of critical fields by third ANC contact.
+    </div>
+  </div>
+
+  <!-- PILLAR 2 -->
+  <div class="card" style="margin-bottom:14px;border-left:3px solid var(--teal)">
+    <span class="tag t-teal" style="margin-bottom:8px;display:inline-block">Pillar 2 · Connect</span>
+    <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px">Digital Doulas — the Data & Action Network</div>
+    <div style="font-size:13px;color:var(--ink3);margin-bottom:14px">CHPs are not data collectors. They are care coordinators who generate data as a byproduct of genuine service.</div>
+
+    <div class="g2" style="margin-bottom:12px">
+      <div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Offline-first mobile tool</strong> — structured ANC visit guide, auto-risk flagging, Bluetooth vitals capture, offline sync. Auto-generates DHIS2 ANC register — the paperwork is done for them.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Community-clinic linkage</strong> — when the CWHI™ flags high-risk, the CHP receives an automated nudge. Referral is logged, facility is notified, outcome is tracked. The loop closes.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Edge computing architecture</strong> — ML prediction algorithms cached locally. Operates at &lt;1kb/s. 85% model accuracy maintained offline. Patent application filed: Kenya Patent Office #2024/789.</div></div>
+      </div>
+      <div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Multi-modal mother interface</strong> — USSD for 2G / feature phones, Android app for smartphones, SMS nudges for all. Weekly pregnancy tips, danger sign checklist, appointment reminders. Mother's relationship is with Maternanet directly, not only through her CHP.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">DHIS2 + SHA integration</strong> — auto-submission to Kenya's national health data system (DHIS2) and the Social Health Authority (SHA) for claims matching. Every SHA-covered birth creates a matched outcome record — the gold standard for longitudinal validation.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Supervisor dashboard</strong> — CHAs (CHP supervisors) see real-time CHP performance, visit compliance, and risk flag response rates. Recognition and incentive system tied to quality scores, not just visit counts.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLAR 3 -->
+  <div class="card" style="margin-bottom:14px;border-left:3px solid var(--amber)">
+    <span class="tag t-amber" style="margin-bottom:8px;display:inline-block">Pillar 3 · Finance</span>
+    <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px">Economic Resilience — Care Now, Lipa Later</div>
+    <div style="font-size:13px;color:var(--ink3);margin-bottom:14px">The micro-savings wallet is not a financing feature. It is the postpartum re-engagement mechanism that closes the longitudinal record.</div>
+
+    <div class="callout danger" style="margin-bottom:14px">
+      <strong>Critical safeguard applied:</strong> Previous framing triggered credit disbursement directly from AI flag → CHP nudge → MFI loan. This creates a liability loop: at 81% precision, 1 in 5 flagged mothers is not clinically high-risk. A credit event attached to a false positive produces debt without clinical justification. The corrected protocol adds a mandatory clinical confirmation layer: AI flag → CHP visit → nurse-midwife or Clinical Officer confirmation at facility → credit authorisation. No financing is triggered without skilled attendant sign-off.
+    </div>
+
+    <div class="g3">
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">Micro-savings wallet</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">Mothers save incrementally from Kshs 30/week toward delivery costs. Milestone-linked: savings goals tied to ANC visit completion. This is the mechanism that drives postpartum re-engagement — the mother returns to check her savings balance and logs her postpartum data. The wallet earns its place in the data architecture, not just the impact story.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">Care Now, Lipa Later (confirmed-risk only)</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">MFI credit lines for confirmed high-risk interventions. Confirmation required: Clinical Officer sign-off at facility, not CHP alone. Revenue: 8% revenue share on loan facilitation. At Phase 3 (1M profiles), our risk models price these loans more accurately than any MFI actuarial model — that is the commercial leverage, not the facilitation fee.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">Maternal micro-insurance (Phase 3)</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">At 1M profiles with 18-month cohort depth: co-underwrite maternity insurance with Jubilee or APA. Our CWHI™ models give underwriters 30–40% better loss ratio than market pricing. Premium: Kshs 400–600/month. The data advantage is the product — not the insurance product itself.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLYWHEEL -->
+  <div class="section-head" style="margin-top:36px">
+    <span class="sec-num" style="font-size:10px">MECHANISM</span>
+    <h2 class="sec-title" style="font-size:17px">The Compounding Flywheel</h2>
+  </div>
+  <div class="flywheel">
+    <div class="fw-item">
+      <div class="fw-num">01</div>
+      <div class="fw-title">Service quality</div>
+      <div class="fw-sub">CHP tool reduces missed visits, flags risk early, auto-handles paperwork</div>
+    </div>
+    <div class="fw-item">
+      <div class="fw-num">02</div>
+      <div class="fw-title">Trust + retention</div>
+      <div class="fw-sub">77% retention validates the mechanism. Mothers re-enroll for next pregnancy</div>
+    </div>
+    <div class="fw-item">
+      <div class="fw-num">03</div>
+      <div class="fw-title">Deeper records</div>
+      <div class="fw-sub">Longer relationships = more variables per woman = richer longitudinal data</div>
+    </div>
+    <div class="fw-item">
+      <div class="fw-num">04</div>
+      <div class="fw-title">Model accuracy</div>
+      <div class="fw-sub">More data → better CWHI™ → better outcomes → more trust. Repeat.</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--ink4);margin-top:6px">↻ Every revolution of this loop makes the next one faster — and cannot be replicated by a late entrant without the longitudinal dataset.</div>
+</section>
+
+<!-- CHP OPS -->
+<section id="chp-ops" class="section">
+  <div class="section-head">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">CHP Operations — Reconciled Numbers</h2>
+    <span class="sec-aside">The ground truth behind caseload, training, and incentives</span>
+  </div>
+
+  <div class="compare-wrap">
+    <div class="compare-head">
+      <div>Parameter</div>
+      <div>Previous (contradicted)</div>
+      <div>Corrected (evidence-based)</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Max active caseload</div>
+      <div class="cr-old">120 mothers (GTM section) vs. 200 mothers (SOP section) — two different numbers, no explanation</div>
+      <div class="cr-new">40–50 active concurrent cases. Beyond this, record completeness degrades below the 80% threshold required for model training validity.</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">New ANC registrations / year</div>
+      <div class="cr-old">Implied large numbers but not derived from first principles</div>
+      <div class="cr-new">16 new registrations per CHP per year — derived from Kenya TFR (3.4), 120-household catchment, 113 pregnancies/1,000 women/year, active outreach uplift of 5.7×</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Training programme</div>
+      <div class="cr-old">10-day intensive bootcamp — high cost, hard to replicate at scale</div>
+      <div class="cr-new">2-day core training + ongoing digital refresher modules + quarterly CHA-led workshops. Train-the-Trainer via CHAs is the scaling mechanism.</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Training cost per CHP</div>
+      <div class="cr-old">$110 (venue, trainers, stipends, kits)</div>
+      <div class="cr-new">$110 for initial cohort. Falls to ~$35 per CHP at scale via TTT model (CHA-led training, digital modules, BYOD)</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Incentive model</div>
+      <div class="cr-old">Performance-based incentives — unspecified</div>
+      <div class="cr-new">Airtime + data bundle credited per complete record (via Safaricom/Airtel API). Framed as operational fuel, not cash payment. Avoids "paid to extract data" perception.</div>
+    </div>
+  </div>
+
+  <div class="math-box">
+    <div class="math-head">
+      <span class="mh-title">CHP Caseload — First-Principles Derivation</span>
+      <span class="mh-tag">ground truth</span>
+    </div>
+    <div class="math-body">
+      <div class="eq">
+HH per CHP catchment:         ~120 households
+Women of reproductive age:    120 × 4.8 persons × 43% female × 45% reproductive age
+                              = <span class="hi">~25 women of repro age per catchment</span>
+Kenya TFR (2024):             3.4  →  annual pregnancy rate = 3.4 ÷ 30yr fertility window
+                              = <span class="hi">0.113 (11.3% of WRA pregnant per year)</span>
+<span class="cm">──────────────────────────────────────────────────────</span>
+Passive pregnancies in catchment:  25 × 0.113 = <span class="hi">~2.8/year</span>
+Active outreach uplift:            Maternanet validated 5.7× uplift in pilot data
+                                   2.8 × 5.7 = <span class="ok">~16 new ANC registrations per CHP per year</span>
+<span class="cm">──────────────────────────────────────────────────────</span>
+Active concurrent caseload:        16 new × 1.5yr avg follow-up arc = <span class="ok">~24 active</span>
+                                   Plus postpartum cohort (~12 at any time) = <span class="ok">36–40 active cases</span>
+Safe upper limit (quality gate):   <span class="ok">50 active cases per CHP</span>
+Above 50:                          Visit frequency drops, completeness falls below 80% threshold
+                                   <span class="bad">Do not exceed. This is a quality ceiling, not a target.</span>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink3);line-height:1.6">The 16 new registrations/year figure represents a 5.7× improvement over passive registration — this is the core proof-of-value claim that county health departments can verify against DHIS2 baseline data. It is the number that justifies the Linda Mama contract renewal.</p>
+    </div>
+  </div>
+
+  <div class="math-box">
+    <div class="math-head">
+      <span class="mh-title">Train-the-Trainer Scaling Model — CHAs as Multiplier</span>
+      <span class="mh-tag">operational constraint</span>
+    </div>
+    <div class="math-body">
+      <div class="eq">
+Kenya has ~4,000 Community Health Assistants (CHAs) — CHP supervisors
+Ratio: 1 CHA per ~25 CHPs
+<span class="cm">──────────────────────────────────────────────────────</span>
+Year 1:   Certify 50 CHAs as master trainers (5-day certification, $350/CHA)
+Year 2:   50 CHAs × 70 CHPs certified/quarter = <span class="ok">3,500 new CHPs in one quarter</span>
+Year 3+:  250 sub-trainers (trained by master trainers) × 20 CHPs/quarter = <span class="ok">5,000/quarter</span>
+<span class="cm">──────────────────────────────────────────────────────</span>
+<span class="hi">Critical dependency: CHA engagement must begin Month 3–6 of Year 1.</span>
+Waiting until Year 2 collapses the training capacity when it is most needed.
+<span class="cm">──────────────────────────────────────────────────────</span>
+Phone access: 78% of Kenya CHPs already own a smartphone (GSMA 2024)
+BYOD + Kshs 300/mo data bundle = <span class="ok">Option B is correct — no device procurement needed at scale</span>
+Rugged tablets reserved for rural areas with &lt;50% smartphone penetration only
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA FOUNDATION -->
+<section id="data" class="section">
+  <div class="section-head">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">Data Foundation — The Eight Thresholds</h2>
+    <span class="sec-aside">What "good enough" means before products stack on top</span>
+  </div>
+
+  <div class="callout">
+    The 85,000 mothers targeted by 2028 makes Maternanet a strong impact organisation. It does not yet make the CWHI™ commercially viable for insurance underwriting, pharma trial recruitment, or government epidemiology. <strong>The inflection point is 1 million longitudinal profiles</strong> — at which predictive models reach individual-level clinical utility and every high-margin revenue line activates simultaneously. The path to 1M is explicit in Section 05.
+  </div>
+
+  <div class="g4" style="margin-bottom:12px">
+    <div class="card">
+      <span class="tag t-plum" style="display:block;margin-bottom:8px">T1</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--plum);line-height:1;margin-bottom:4px">1M</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Longitudinal profiles</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">The statistical threshold at which individual-level predictive models reach clinical utility. Below this: descriptive. Above this: predictive — the commercial unlock.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-teal" style="display:block;margin-bottom:8px">T2</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:4px">25%+</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Annual birth coverage</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">Of Kenya's ~1.3M annual births. Gives statistical power for sub-county analysis and enables county health departments to use Maternanet data for policy decisions.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-blue" style="display:block;margin-bottom:8px">T3</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--blue);line-height:1;margin-bottom:4px">20/47</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">County coverage</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">Urban + peri-urban + rural mix. Geographic diversity prevents model bias. Pharma partners require population coverage for trial recruitment eligibility.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-amber" style="display:block;margin-bottom:8px">T4</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--amber);line-height:1;margin-bottom:4px">70+</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Structured fields per record</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">Clinical (BP, MUAC, Hb, fundal height), socioeconomic (intake), and environmental (pre-loaded). Required for CWHI™ model performance at published precision/recall levels.</div>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="card">
+      <span class="tag t-coral" style="display:block;margin-bottom:8px">T5</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--coral);line-height:1;margin-bottom:4px">18mo</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Temporal depth per cohort</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">9 months pregnancy + 9 months postnatal follow-up. Captures the full maternal outcome arc including PPD, neonatal death, and postpartum haemorrhage sequelae.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-teal" style="display:block;margin-bottom:8px">T6</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:4px">≥80%</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Record completeness</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">Enforced through product UX (required fields, completion nudges to CHPs) — not post-hoc data cleaning. 1M records at 40% completeness is a liability, not an asset.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-plum" style="display:block;margin-bottom:8px">T7</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--plum);line-height:1;margin-bottom:4px">≥40%</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">ANC→postpartum linkage</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">The hardest threshold. Requires the mother to re-engage after birth. The micro-savings wallet is the primary mechanism — milestone savings goals drive return visits and postpartum data logging.</div>
+    </div>
+    <div class="card">
+      <span class="tag t-blue" style="display:block;margin-bottom:8px">T8</span>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--blue);line-height:1;margin-bottom:4px">≥3 ANC</div>
+      <div style="font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px">Minimum contacts tracked</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.4">3 logged visits gives a usable longitudinal record with trend data. Floor for model inclusion. Target: 5+ contacts per pregnancy (vs Kenya baseline of 4.2). 8 contacts = gold standard.</div>
+    </div>
+  </div>
+
+  <!-- DATA GOVERNANCE / CONSENT -->
+  <div style="margin-top:24px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px">Data Governance & Consent Architecture</div>
+    <div class="callout danger" style="margin-bottom:14px">
+      <strong>Gap addressed:</strong> Previous documentation cited KMPDC, DPA 2019, and GDPR compliance but contained no description of how consent is actually obtained from a low-literacy rural mother — in what language, via what mechanism, with what opt-out. This is the section county health departments will audit and the section that, if absent, will cost a MOU post-signing.
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="background:var(--ink);padding:11px 18px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,0.7)">CONSENT FLOW — FIRST VISIT REGISTRATION</div>
+      <div style="padding:18px">
+        <div class="consent-step">
+          <div class="cs-num">01</div>
+          <div class="cs-body">
+            <h6>Verbal consent in mother tongue</h6>
+            <p>CHP reads a standardised 3-sentence consent statement in Kiswahili, Kikuyu, Dholuo, or Kalenjin (language selected in app at county setup). Statement: what data is collected, who sees it, how to stop. No signatures — verbal consent logged as audio timestamp in app. Compliant with DPA 2019 oral consent provisions.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">02</div>
+          <div class="cs-body">
+            <h6>"Your health story, your ownership" framing</h6>
+            <p>Mother receives a printed card (or SMS summary) stating: her record is portable, she can request a full data export at any time via USSD *384#, her data is never sold individually, and she can withdraw without affecting her care. This framing is not aspirational — it is the consent architecture, and it drives re-enrollment for second pregnancies.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">03</div>
+          <div class="cs-body">
+            <h6>Granular opt-in for data uses beyond direct care</h6>
+            <p>Separate opt-in for: (a) anonymised aggregation for county health planning, (b) anonymised use in AI model training, (c) inclusion in academic research datasets. Default is direct care only. Upsell consent requires a second explicit action — never bundled into initial registration.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">04</div>
+          <div class="cs-body">
+            <h6>Withdrawal mechanism</h6>
+            <p>USSD opt-out: *384*0# at any time. Record is frozen (not deleted) per DPA 2019 requirements — mother can request deletion via county health office. CHP is notified; care continues uninterrupted. Withdrawal rate is a product health metric monitored monthly.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">05</div>
+          <div class="cs-body">
+            <h6>SHA alignment (2026 priority)</h6>
+            <p>Kenya's Social Health Authority is building portable health records for every enrolled citizen. Maternanet positions as the richest data source a mother can contribute to her SHA profile. When SHA mandates digital ANC records (expected 2026–2027), Maternanet's consent architecture is pre-aligned. First-mover regulatory compliance = 18-month lead over competitors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH TO 1M -->
+<section id="path-1m" class="section">
+  <div class="section-head">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Path to 1 Million Profiles</h2>
+    <span class="sec-aside">The explicit plan to close the 85K → 1M gap</span>
+  </div>
+
+  <div class="callout warn">
+    <strong>Honest reckoning:</strong> Current trajectory (85,000 mothers by 2028) reaches the coverage milestone for impact reporting. It does not reach the data asset milestone for commercial activation. The plan below shows how disciplined CHP rollout and the consumer (Mama) app channel together close the gap to 1M by Year 5 in Kenya. This is not a stretch target — it requires 35% penetration of Kenya's existing 100,000-CHP workforce.
+  </div>
+
+  <div style="background:var(--page2);border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:16px">
+    <table class="data-table">
+      <tr>
+        <th>Year</th>
+        <th>Active CHPs</th>
+        <th>Counties</th>
+        <th>New Profiles / Yr</th>
+        <th>Cumulative</th>
+        <th>% Kenya Births</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td><span class="mono">2025</span></td>
+        <td>410 <span style="font-size:11px;color:var(--ink4)">(current)</span></td>
+        <td>4</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:1%"></div></div><span class="mono">~6,500</span></div></td>
+        <td><span class="mono">11,000</span></td>
+        <td>0.8%</td>
+        <td><span class="tag t-blue">Live</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">2026</span></td>
+        <td>2,000</td>
+        <td>6</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:5%"></div></div><span class="mono">32,000</span></div></td>
+        <td><span class="mono">43,000</span></td>
+        <td>2.5%</td>
+        <td><span class="tag t-teal">Scale</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">2027</span></td>
+        <td>6,000</td>
+        <td>12</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:14%"></div></div><span class="mono">96,000</span></div></td>
+        <td><span class="mono">139,000</span></td>
+        <td>7.4%</td>
+        <td><span class="tag t-teal">Push</span></td>
+      </tr>
+      <tr>
+        <td><span class="mono">2028</span></td>
+        <td>14,000</td>
+        <td>20</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:34%"></div></div><span class="mono">224,000</span></div></td>
+        <td><span class="mono">363,000</span></td>
+        <td>17.2%</td>
+        <td><span class="tag t-plum">Series A trigger</span></td>
+      </tr>
+      <tr class="hl">
+        <td><span class="mono">2029</span></td>
+        <td>28,000</td>
+        <td>35</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:60%;background:var(--plum)"></div></div><span class="mono">448,000</span></div></td>
+        <td><span class="mono" style="color:var(--plum)">811,000</span></td>
+        <td>26.8% ✓ T2</td>
+        <td><span class="tag t-plum">Coverage hit</span></td>
+      </tr>
+      <tr class="hl">
+        <td><span class="mono">2030</span></td>
+        <td>35,000 + app</td>
+        <td>45</td>
+        <td><div class="bar-w"><div class="bar"><div class="bar-f" style="width:100%;background:var(--teal)"></div></div><span class="mono">+consumer</span></div></td>
+        <td><span class="mono" style="color:var(--teal);font-weight:700">1,000,000+</span></td>
+        <td>30%+</td>
+        <td><span class="tag t-teal">1M UNLOCKED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="g2">
+    <div class="math-box" style="margin-bottom:0">
+      <div class="math-head">
+        <span class="mh-title">TTT bottleneck — the rate-limiting step</span>
+        <span class="mh-tag">operational</span>
+      </div>
+      <div class="math-body">
+        <div class="eq" style="font-size:11.5px">
+Year 2 challenge: 410 → 2,000 CHPs = 1,590 new CHPs
+Without TTT: 80 workshops × 1 week = <span class="bad">1.5 years. Too slow.</span>
+With 50 certified CHAs:
+  50 CHAs × 32 CHPs/month = <span class="ok">1,600 in 1 month. On schedule.</span>
+
+<span class="hi">CHA recruitment must begin Month 3–6 of 2026.</span>
+Not Month 18. Not at Series A close.
+<span class="hi">This is the critical path item.</span>
+        </div>
+      </div>
+    </div>
+    <div class="math-box" style="margin-bottom:0">
+      <div class="math-head">
+        <span class="mh-title">Consumer app — the gap-closer to 1M</span>
+        <span class="mh-tag">channel 2</span>
+      </div>
+      <div class="math-body">
+        <div class="eq" style="font-size:11.5px">
+The consumer (Mama) app adds a second data channel:
+Women who find Maternanet without CHP mediation.
+WhatsApp bot: *384# short code, zero-barrier entry
+USSD weekly tips → opt-in to full registration
+<span class="cm">────────────────────────────────────────</span>
+Conservative estimate: 150,000 consumer-direct
+profiles by 2030 = the margin that clears 1M.
+<span class="ok">Diaspora channel adds ~20,000/year: sponsor a</span>
+<span class="ok">relative's pregnancy from the UK / US / UAE.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RCT TENSION -->
+  <div class="callout danger" style="margin-top:16px">
+    <strong>RCT vs. continuous model improvement — a structural tension that needs an explicit decision:</strong> The current plan includes both a Stepped-Wedge Pilot RCT (Year 3–5) and continuous AI model retraining. These are incompatible as written. An RCT requires model freeze — retraining the CWHI™ during the trial invalidates the experimental design. The correct approach: freeze a named model version (CWHI™ v2.0) for the duration of the RCT. Continue development on CWHI™ v3.0 in parallel on a separate data partition. Deploy v3.0 post-trial. This is an adaptive trial protocol decision that requires a biostatistician sign-off before Year 3.
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue" class="section">
+  <div class="section-head">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title">Revenue Architecture</h2>
+    <span class="sec-aside">Revenue must follow data depth, not investor pressure</span>
+  </div>
+
+  <div style="background:var(--page2);border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:16px">
+    <table class="data-table">
+      <tr>
+        <th>Stream</th>
+        <th>2025 (Actual)</th>
+        <th>2026 (Proj.)</th>
+        <th>2027 (Proj.)</th>
+        <th>2028 (Proj.)</th>
+        <th>Unlock condition</th>
+      </tr>
+      <tr>
+        <td><strong>Platform revenue</strong><br><span style="font-size:11px;color:var(--ink4)">Linda Mama + facility licensing</span></td>
+        <td><span class="mono">$95,897</span></td>
+        <td><span class="mono">$155,053</span></td>
+        <td><span class="mono">$192,031</span></td>
+        <td><span class="mono">$201,573</span></td>
+        <td><span class="tag t-teal">Active now</span></td>
+      </tr>
+      <tr>
+        <td><strong>Data analytics</strong><br><span style="font-size:11px;color:var(--ink4)">County contracts + NGO projects</span></td>
+        <td><span class="mono" style="color:var(--ink4)">—</span></td>
+        <td><span class="mono">$62,500</span></td>
+        <td><span class="mono">$102,500</span></td>
+        <td><span class="mono">$222,500</span></td>
+        <td><span class="tag t-amber">300K profiles + 18mo depth</span></td>
+      </tr>
+      <tr>
+        <td><strong>Financial services</strong><br><span style="font-size:11px;color:var(--ink4)">Loan facilitation + wallet margin</span></td>
+        <td><span class="mono" style="color:var(--ink4)">—</span></td>
+        <td><span class="mono">$61,410</span></td>
+        <td><span class="mono">$74,820</span></td>
+        <td><span class="mono">$112,230</span></td>
+        <td><span class="tag t-amber">Clinical confirmation layer live</span></td>
+      </tr>
+      <tr class="hl">
+        <td><strong>Total revenues</strong></td>
+        <td><span class="mono">$95,897</span></td>
+        <td><span class="mono">$278,963</span></td>
+        <td><span class="mono">$369,351</span></td>
+        <td><span class="mono">$536,303</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="6" style="font-size:11.5px;color:var(--ink4);font-style:italic;padding:8px 14px">
+          Phase 3 additions (not in above): micro-insurance co-underwriting (~$300K MRR at 100K enrolled mothers), pharma trial recruitment ($800–2,000/participant), DaaS institutional licensing. These activate only at 1M profiles with validated CWHI™ models.
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="g3">
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">UNIT ECONOMICS</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div><strong>CAC: $15 blended</strong> (community referral $8 · 70%, digital $28 · 30%)</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong>CLV: $180 blended</strong> (premium $120 · facility $2,700)</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--amber)"></div><div><strong>CLV/CAC: 12:1 target by 2028</strong></div></div>
+    </div>
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">PROFITABILITY PATH</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--blue)"></div><div>Q4 2026: Break-even EBITDA on operations</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Q2 2027: Positive net income</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>Q2 2028: 20%+ net margins, diversified revenue</div></div>
+    </div>
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">BURN RATE</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Monthly burn: ~$18,620 (2025 actual)</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--amber)"></div><div>Investment ask: $550K (through Q1 2027)</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>ROI visible: 18–25 months post-deployment</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px">$550K Capital Deployment — 2026</div>
+    <div style="background:var(--page2);border:1px solid var(--border2);border-radius:10px;overflow:hidden">
+      <table class="data-table">
+        <tr>
+          <th>Category</th><th>Amount</th><th>%</th><th>Key activities</th><th>Expected outcome</th>
+        </tr>
+        <tr>
+          <td><strong>Technology</strong></td><td><span class="mono">$202,500</span></td><td>36.8%</td>
+          <td style="font-size:12px">CWHI™ model refinement · offline architecture · SHA integration · USSD expansion · security hardening</td>
+          <td style="font-size:12px">Recall 79% → 85%. SHA-ready by Q3 2026.</td>
+        </tr>
+        <tr>
+          <td><strong>Market expansion</strong></td><td><span class="mono">$144,500</span></td><td>26.3%</td>
+          <td style="font-size:12px">CHA master trainer certification · CHP rollout to 6 counties · Mama app consumer launch</td>
+          <td style="font-size:12px">11K → 33K mothers. 410 → 2,000 CHPs.</td>
+        </tr>
+        <tr>
+          <td><strong>Partnership integration</strong></td><td><span class="mono">$86,900</span></td><td>15.8%</td>
+          <td style="font-size:12px">4 new county MOUs · KEMRI academic partnership · MFI pre-qualification · SHA data partner registration</td>
+          <td style="font-size:12px">Government revenue anchor secured.</td>
+        </tr>
+        <tr>
+          <td><strong>Equipment</strong></td><td><span class="mono">$57,750</span></td><td>10.5%</td>
+          <td style="font-size:12px">Rugged tablets for rural cohort only (low-smartphone counties). BP cuffs, MUAC tape, pulse oximeters for new CHP kits.</td>
+          <td style="font-size:12px">60% rural users served offline-first.</td>
+        </tr>
+        <tr>
+          <td><strong>Working capital</strong></td><td><span class="mono">$57,750</span></td><td>10.5%</td>
+          <td style="font-size:12px">18-month operational buffer. Contingencies. Legal compliance + KMPDC certification.</td>
+          <td style="font-size:12px">Cash flow stability through Q1 2027.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section class="section">
+  <div class="section-head">
+    <span class="sec-num">06b</span>
+    <h2 class="sec-title">Traction — What the Numbers Mean</h2>
+    <span class="sec-aside">Evidence from 2023–2025 pilot data, validated against county DHIS2</span>
+  </div>
+
+  <div class="g4" style="margin-bottom:16px">
+    <div class="card" style="border-top:3px solid var(--plum)">
+      <div class="proof-number" style="color:var(--plum)">+21pp</div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin:4px 0">ANC attendance increase</div>
+      <div style="font-size:12px;color:var(--ink3);line-height:1.5">Baseline: 48% completing 4 ANC visits (Nairobi, Narok, Kajiado). Current: 69%. Source: clinic registers + CHP logs, validated against county DHIS2.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--teal)">
+      <div class="proof-number" style="color:var(--teal)">−15pp</div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin:4px 0">Missed appointments</div>
+      <div style="font-size:12px;color:var(--ink3);line-height:1.5">Baseline: 42% missed ANC visits. Current: 27% within one year of AI-powered reminders + CHP follow-ups. Source: app logs + clinic scheduling records.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--amber)">
+      <div class="proof-number" style="color:var(--amber)">77%</div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin:4px 0">User engagement/retention</div>
+      <div style="font-size:13px;font-weight:500;color:var(--plum);margin:4px 0;font-family:'DM Mono',monospace;font-size:10px">THE MOST IMPORTANT NUMBER</div>
+      <div style="font-size:12px;color:var(--ink3);line-height:1.5">Active mothers logging in or responding at least once weekly over 6 months. Baseline: 43%. This directly validates that mothers will sustain longitudinal engagement — the foundational assumption for the data asset thesis.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--blue)">
+      <div class="proof-number" style="color:var(--blue)">$8,100</div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin:4px 0">Cost per life saved (2025)</div>
+      <div style="font-size:12px;color:var(--ink3);line-height:1.5">Conservative. 12+ maternal deaths prevented annually at current scale. Falls to $650 by 2028 as scale compounds. Cost-effectiveness benchmark: $2,000–5,000 is considered excellent for African LMIC context.</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:10px">Clinical outcomes improvement — cumulative</div>
+      <div class="bar-chart">
+        <div class="bc-row"><div class="bc-label">ANC completion</div><div class="bc-track"><div class="bc-fill" style="width:69%;background:var(--plum)"></div></div><div class="bc-val">69% (+21pp)</div></div>
+        <div class="bc-row"><div class="bc-label">Appt. adherence</div><div class="bc-track"><div class="bc-fill" style="width:73%;background:var(--teal)"></div></div><div class="bc-val">73% (−15pp miss)</div></div>
+        <div class="bc-row"><div class="bc-label">Retention 6mo</div><div class="bc-track"><div class="bc-fill" style="width:77%;background:var(--amber)"></div></div><div class="bc-val">77%</div></div>
+        <div class="bc-row"><div class="bc-label">CWHI recall</div><div class="bc-track"><div class="bc-fill" style="width:79%;background:var(--blue)"></div></div><div class="bc-val">79%</div></div>
+        <div class="bc-row"><div class="bc-label">CWHI precision</div><div class="bc-track"><div class="bc-fill" style="width:81%;background:var(--ink2)"></div></div><div class="bc-val">81%</div></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:500;color:var(--ink);margin-bottom:10px">Impact trajectory — lives saved vs. cost per life</div>
+      <div class="bar-chart">
+        <div class="bc-row"><div class="bc-label" style="min-width:40px">2025</div><div class="bc-track"><div class="bc-fill" style="width:12%;background:var(--coral)"></div></div><div class="bc-val" style="font-size:11px">10 · $8,100</div></div>
+        <div class="bc-row"><div class="bc-label" style="min-width:40px">2026</div><div class="bc-track"><div class="bc-fill" style="width:25%;background:var(--amber)"></div></div><div class="bc-val" style="font-size:11px">27 · $4,250</div></div>
+        <div class="bc-row"><div class="bc-label" style="min-width:40px">2027</div><div class="bc-track"><div class="bc-fill" style="width:50%;background:var(--teal)"></div></div><div class="bc-val" style="font-size:11px">52 · $2,100</div></div>
+        <div class="bc-row"><div class="bc-label" style="min-width:40px">2028</div><div class="bc-track"><div class="bc-fill" style="width:100%;background:var(--plum)"></div></div><div class="bc-val" style="font-size:11px">112 · $975</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--ink4);margin-top:8px">As scale grows, cost per life saved falls — cost-effectiveness improves with every new CHP.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases" class="section">
+  <div class="section-head">
+    <span class="sec-num">07</span>
+    <h2 class="sec-title">Phase Roadmap</h2>
+    <span class="sec-aside">Click each phase to expand operational detail</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-block p0">
+      <div class="tl-inner">
+        <div class="tl-head" onclick="tog(this)">
+          <span class="tag t-blue">Phase 0 · Foundation</span>
+          <span class="tl-name">Ethnography, co-design, government MoUs</span>
+          <span class="tl-window">2023–2024 (Complete)</span>
+          <span class="tl-toggle">▾</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-metrics">
+            <div class="tl-m"><div class="tmv">4</div><div class="tml">counties established</div></div>
+            <div class="tl-m"><div class="tmv">33</div><div class="tml">integrated clinics</div></div>
+            <div class="tl-m"><div class="tmv">410</div><div class="tml">Digital Doulas trained</div></div>
+            <div class="tl-m"><div class="tmv">96%</div><div class="tml">CHP retention rate</div></div>
+          </div>
+          <div class="tl-col">
+            <h5>What was built</h5>
+            <div class="tl-item"><h6>Co-designed CHP tool</h6><p>6 co-design sprints with CHPs as co-designers. Every field in the ANC form is something a CHP would have recorded anyway. The auto-DHIS2 export was the feature that drove adoption — it eliminated the paper burden.</p></div>
+            <div class="tl-item"><h6>CWHI™ v1 trained and validated</h6><p>First model version trained on pilot cohort. Recall improvement from 58% → 79% validated against WHO checklist risk scoring. +19pp absolute gain. Provides clinical evidence base for county MOU renewals.</p></div>
+          </div>
+          <div class="tl-col">
+            <h5>What it proved</h5>
+            <div class="tl-item"><h6>H1 confirmed: CHPs change behaviour</h6><p>96% retention rate. 77% mother engagement. The foundational hypotheses are true in the field — the mechanism works. Phase 1 is not a question of whether, but how fast.</p></div>
+            <div class="tl-item"><h6>Linda Mama revenue anchor live</h6><p>$95,897 actual 2025 revenue from facility licensing + government contracts. This is the bridge that funds expansion without monetising health data prematurely.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-block p1">
+      <div class="tl-inner">
+        <div class="tl-head" onclick="tog(this)">
+          <span class="tag t-teal">Phase 1 · Scale</span>
+          <span class="tl-name">County-by-county rollout · Mama app launch · SHA integration</span>
+          <span class="tl-window">2026–2027</span>
+          <span class="tl-toggle">▾</span>
+        </div>
+        <div class="tl-body collapsed">
+          <div class="tl-metrics">
+            <div class="tl-m"><div class="tmv">2,000</div><div class="tml">CHPs by end 2026</div></div>
+            <div class="tl-m"><div class="tmv">43K</div><div class="tml">profiles by end 2026</div></div>
+            <div class="tl-m"><div class="tmv">6</div><div class="tml">counties</div></div>
+            <div class="tl-m"><div class="tmv">Series A</div><div class="tml">trigger at 300K</div></div>
+          </div>
+          <div class="tl-col">
+            <h5>Expansion priorities</h5>
+            <div class="tl-item"><h6>County sequencing: 4 → 6 → 12</h6><p>2026: Add Mombasa, Nakuru (urban density, SHA pilot counties). 2027: Add Eldoret, Nyeri, Kisii, Meru (peri-urban reach). Each county: 3-month government engagement minimum before CHP training begins. Never skip the MOU step.</p></div>
+            <div class="tl-item"><h6>SHA data partner certification (priority Q3 2026)</h6><p>Kenya's Social Health Authority is building its provider integration layer now. Being the first maternal health platform certified as a SHA data partner is worth an 18-month competitive lead. This is the regulatory moat that cannot be bought with capital.</p></div>
+            <div class="tl-item"><h6>KEMRI academic partnership</h6><p>Co-authorship agreement with Kenya Medical Research Institute or University of Nairobi. First paper: ANC compliance improvement analysis from pilot cohort. Target journal: Lancet Global Health or BMC Pregnancy and Childbirth. Published results open pharma and government doors that capital alone cannot.</p></div>
+          </div>
+          <div class="tl-col">
+            <h5>Product launches</h5>
+            <div class="tl-item"><h6>Mama app — consumer layer (Q2 2026)</h6><p>USSD-first for 2G/feature phones. Android app for smartphones. Week-by-week pregnancy tips, danger sign checklist, newborn tracker, micro-savings wallet. Mother's direct relationship with Maternanet — not mediated solely through her CHP. This is the second data channel and the postpartum linkage mechanism.</p></div>
+            <div class="tl-item"><h6>CWHI™ v2.0 — model freeze for RCT prep</h6><p>Named model version frozen at 81% precision / 79% recall. Development continues on v3.0 on separate data partition. Biostatistician sign-off on adaptive trial protocol required before Year 3. Do not retrain v2.0 after freeze date.</p></div>
+            <div class="tl-item"><h6>First cohort reaches 18-month depth</h6><p>By Month 27, original 11K pilot mothers have 18-month longitudinal records. Run first internal model validation for pre-eclampsia, preterm risk. Results go to scientific advisory board before any investor presentation.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-block p2">
+      <div class="tl-inner">
+        <div class="tl-head" onclick="tog(this)">
+          <span class="tag t-plum">Phase 2 · Activate</span>
+          <span class="tl-name">Products on the foundation · 1M profiles · first commercial revenues</span>
+          <span class="tl-window">2028–2030</span>
+          <span class="tl-toggle">▾</span>
+        </div>
+        <div class="tl-body collapsed">
+          <div class="tl-metrics">
+            <div class="tl-m"><div class="tmv">1M+</div><div class="tml">profiles unlocked</div></div>
+            <div class="tl-m"><div class="tmv">3</div><div class="tml">revenue streams live</div></div>
+            <div class="tl-m"><div class="tmv">2</div><div class="tml">countries (KE + UG)</div></div>
+            <div class="tl-m"><div class="tmv">Series B</div><div class="tml">$40–80M regional</div></div>
+          </div>
+          <div class="tl-col">
+            <h5>Revenue activation</h5>
+            <div class="tl-item"><h6>Maternal micro-insurance co-underwriting</h6><p>CWHI™ models give underwriters 30–40% better loss ratio than market. Start with 50K enrolled mothers. Premium: Kshs 400–600/month. Revenue: margin share on loss ratio advantage. This is not a SaaS product — it is an actuarial advantage sold to an insurer who cannot replicate our data.</p></div>
+            <div class="tl-item"><h6>Pharma and nutrition distribution</h6><p>IFA supplements, deworming, vitamin A — distributed through CHP network with CWHI™-personalised recommendations. Manufacturer pays for targeting precision. Maternanet takes 15–20% fulfilment margin. At 300K enrolled mothers × Kshs 800/quarter = ~$600K/quarter addressable.</p></div>
+          </div>
+          <div class="tl-col">
+            <h5>Infrastructure expansion</h5>
+            <div class="tl-item"><h6>CWHI™ v3.0 predictive models — live in CHP tool</h6><p>Pre-eclampsia, postpartum haemorrhage, preterm birth risk scores deployed as real-time flags. This is the clinical moat: a competitor arriving today is 5 years behind on data depth. At 1M profiles the models are individually validated — no competitor can match this without the longitudinal dataset.</p></div>
+            <div class="tl-item"><h6>Uganda entry (Year 4)</h6><p>Kenya playbook with adaptation. Different CHP structure (Village Health Teams), different SHA equivalent (NSSF Health), same mechanism. Start with 3 districts in Central Uganda (highest birth rate, existing DHIS2 penetration). Do not rush — repeat the ethnographic phase.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-block p3">
+      <div class="tl-inner">
+        <div class="tl-head" onclick="tog(this)">
+          <span class="tag t-amber">Phase 3 · Dominate</span>
+          <span class="tl-name">The OS layer · full-spectrum women's health · infrastructure status</span>
+          <span class="tl-window">2031–2035</span>
+          <span class="tl-toggle">▾</span>
+        </div>
+        <div class="tl-body collapsed">
+          <div class="tl-metrics">
+            <div class="tl-m"><div class="tmv">5M</div><div class="tml">profiles, 5 countries</div></div>
+            <div class="tl-m"><div class="tmv">DaaS</div><div class="tml">institutional data licensing</div></div>
+            <div class="tl-m"><div class="tmv">Cervical</div><div class="tml">cancer screening rollout</div></div>
+            <div class="tl-m"><div class="tmv">OS</div><div class="tml">status achieved</div></div>
+          </div>
+          <div class="tl-col">
+            <h5>The monopoly test</h5>
+            <div class="tl-item"><h6>Health record as identity layer</h6><p>The woman's ID is her Maternanet record. Insurance, pharmacy, telemedicine, cervical screening, menopause care — all authenticated through the longitudinal profile built in maternity. This is M-Pesa's architecture: one trusted identity, infinite products.</p></div>
+            <div class="tl-item"><h6>Cervical cancer screening</h6><p>AI screening tools (PapsAI-class) are validated by 2030. Maternanet has the distribution (CHP network), the trust (longitudinal relationship), and the identity layer. Roll out AI-powered VIA/HPV screening through existing CHP visits. No new channels needed. The maternal health flywheel funds the cancer prevention mission.</p></div>
+          </div>
+          <div class="tl-col">
+            <h5>Data as infrastructure</h5>
+            <div class="tl-item"><h6>B2B Data-as-a-Service</h6><p>Aggregate, anonymised East African women's health data at 5M profiles becomes the reference dataset for the continent. Pharma trials, epidemiological research, public health planning. Priced per research question, not per record. This is the highest-margin line in the portfolio — zero marginal cost once the infrastructure exists.</p></div>
+            <div class="tl-item"><h6>OS status: the 2035 test</h6><p>You have achieved OS status when a pharmaceutical company, insurer, or government ministry finds it operationally impossible to reach East African women at clinical precision without Maternanet's network. That is the goal. Not market share — infrastructure status.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPETITIVE -->
+<section class="section">
+  <div class="section-head">
+    <span class="sec-num">08</span>
+    <h2 class="sec-title">Competitive Position</h2>
+    <span class="sec-aside">The moat is the data, not the architecture</span>
+  </div>
+
+  <div class="callout fix" style="margin-bottom:16px">
+    <strong>On the patent:</strong> Filing Application #2024/789 ("Distributed Healthcare AI with Progressive Sync") is a real asset but should not be the lead moat claim. The architecture is implementable by any experienced offline-first mobile team. The moat is the 18-month longitudinal dataset per cohort — no competitor arriving today can replicate that without 18 months of actual time and a CHP network with 77% mother retention. Lead with the data, mention the patent as supporting evidence.
+  </div>
+
+  <div style="background:var(--page2);border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:16px">
+    <table class="data-table">
+      <tr>
+        <th>Competitor</th><th>Strengths</th><th>Weaknesses</th><th>Our advantage</th><th>Evidence</th>
+      </tr>
+      <tr>
+        <td><strong>Babyl Health</strong><br><span style="font-size:11px;color:var(--ink4)">Rwanda / UK</span></td>
+        <td style="font-size:12px">Strong Rwanda government partnerships. Established brand.</td>
+        <td style="font-size:12px">Smartphone-dependent. Limited offline capability. General health, not maternal-specialist.</td>
+        <td style="font-size:12px">60% of our users access via SMS/USSD. Maternal-specific CWHI™ model.</td>
+        <td><span class="tag t-teal">Validated</span></td>
+      </tr>
+      <tr>
+        <td><strong>Jacaranda Health</strong><br><span style="font-size:11px;color:var(--ink4)">Kenya</span></td>
+        <td style="font-size:12px">Proven facility-based maternal outcomes. Strong Kenya brand.</td>
+        <td style="font-size:12px">Facility-centered. Limited last-mile reach. Not predictive — reactive quality improvement.</td>
+        <td style="font-size:12px">Community-centered, predictive, CHP-delivered. 70% of users through CHP referrals.</td>
+        <td><span class="tag t-teal">Validated</span></td>
+      </tr>
+      <tr>
+        <td><strong>Medic Mobile</strong><br><span style="font-size:11px;color:var(--ink4)">Global</span></td>
+        <td style="font-size:12px">Open-source, CHW tools, DHIS2 experience.</td>
+        <td style="font-size:12px">Generic (not maternal-specialist). No predictive AI layer. NGO dependency, not commercial.</td>
+        <td style="font-size:12px">CWHI™ predictive layer. Commercial model. Data asset compounds — open-source cannot.</td>
+        <td><span class="tag t-amber">Inferred</span></td>
+      </tr>
+      <tr>
+        <td><strong>Late entrant (funded)</strong></td>
+        <td style="font-size:12px">Capital. Could replicate CHP tool in 12–18 months.</td>
+        <td style="font-size:12px">Cannot replicate 18-month longitudinal data depth. Cannot buy government relationships established over 2+ years. Cannot replicate 77% retention without earning it.</td>
+        <td style="font-size:12px">Data moat + government relationships + retention = 5-year minimum lead. Capital cannot compress this.</td>
+        <td><span class="tag t-plum">Structural</span></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks" class="section">
+  <div class="section-head">
+    <span class="sec-num">09</span>
+    <h2 class="sec-title">Risk Register — Revised</h2>
+    <span class="sec-aside">What kills this, and the specific mitigation for each</span>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <div style="background:var(--ink);padding:11px 18px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,0.7)">CRITICAL AND HIGH RISKS — NEW ITEMS ADDED IN V2.0</div>
+    <div style="padding:18px">
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--coral-light);color:var(--coral)">CRITICAL</span>
+        <div class="risk-body">
+          <h5>Care Now Lipa Later — liability loop from false positives</h5>
+          <p>NEW: At 81% precision, 1 in 5 AI-flagged mothers is not clinically high-risk. If credit is disbursed on a false positive, the mother holds debt without clinical justification. MFI has a non-performing loan. Maternanet carries reputational and legal exposure.</p>
+          <p class="risk-fix">Mandatory clinical confirmation layer between AI flag and credit event: Clinical Officer sign-off required before any financing is triggered. CHP nudge is not sufficient. This constraint is non-negotiable and must be built into the MFI partnership terms from the first contract.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--coral-light);color:var(--coral)">CRITICAL</span>
+        <div class="risk-body">
+          <h5>Government data nationalisation</h5>
+          <p>A ministry directive could claim all ANC data generated by CHPs operating under government mandate belongs to the state. Precedent exists in East Africa.</p>
+          <p class="risk-fix">Legal entity registered in Kenya with Kenyan co-founders. Every county MOU clause specifies: government receives aggregate access, individual records are owned by the woman (portable under DPA 2019), Maternanet holds the processing licence. Non-negotiable from Day 1 — do not sign MOUs without this clause.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--coral-light);color:var(--coral)">CRITICAL</span>
+        <div class="risk-body">
+          <h5>CHP churn before 18-month data depth</h5>
+          <p>If average CHP tenure is 4 months, records never reach the 18-month depth required for predictive models. The data asset collapses into a shallow cross-section. Current retention: 96% — this must be monitored relentlessly.</p>
+          <p class="risk-fix">Monthly CHP NPS surveys. Exit interviews mandatory for every departure. If churn exceeds 15%/month in any county: halt that county's expansion, diagnose root cause. Churn is always a product problem, never a CHP problem. Active status: 96% retention. Monitor weekly.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>RCT design incompatibility with continuous model retraining</h5>
+          <p>NEW: The current plan schedules both a stepped-wedge RCT (Year 3–5) and continuous CWHI™ retraining. These are structurally incompatible. Continuous retraining during a trial invalidates the experimental design.</p>
+          <p class="risk-fix">Freeze CWHI™ v2.0 as the RCT model version. Develop v3.0 on a separate data partition. Deploy v3.0 post-trial completion. Engage a biostatistician to design the adaptive trial protocol before Year 3. This decision must be made in 2026 — not in Year 3 when it becomes a crisis.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>AI accuracy metric conflation undermining investor and clinical trust</h5>
+          <p>NEW: Previous document cited "AI accuracy improvement: 39% → 85%" as a single metric. This conflates overall accuracy (a misleading metric on imbalanced datasets) with recall (79%) and precision (81%), which are the clinically meaningful numbers.</p>
+          <p class="risk-fix">Report recall and precision only — not "accuracy." The correct statement: "Recall improves from 58% → 79% with 81% precision maintained — meaning we correctly identify 21% more high-risk pregnancies without overwhelming providers with false alerts." Any investor or clinical partner doing due diligence will test this. Conflation will be caught and will damage credibility.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>Data quality degradation at scale (14,000+ CHPs)</h5>
+          <p>At scale, bad actors, connectivity failures, and tired workers produce implausible values, fabricated entries, and missing critical fields. Below 80% completeness, records are excluded from model training — but they still look like data.</p>
+          <p class="risk-fix">Automated quality scoring per CHP built into the data pipeline by Month 18 of 2026. Records below 70% completeness flagged and excluded from model training data (not deleted). CHPs below quality threshold receive re-training, not dismissal. Quality score is a metric on the CHA supervisor dashboard.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section">
+  <div class="section-head">
+    <span class="sec-num">10</span>
+    <h2 class="sec-title">Leadership Team</h2>
+    <span class="sec-aside">Insiders, not outsiders — this is the founding moat</span>
+  </div>
+
+  <div class="callout fix" style="margin-bottom:20px">
+    <strong>The founding team is an underplayed asset.</strong> A former Jacaranda Health engineer, a KNH-trained OB-GYN with KMPDC credentials, a distributed systems architect with 3 offline-first mobile apps shipped, and an AMREF community health programme manager. This team is not solving a problem they read about. They are solving a problem they lived. That context cannot be hired — and it cannot be replicated by a well-funded entrant who arrives late.
+  </div>
+
+  <div class="g4" style="margin-bottom:20px">
+    <div class="card" style="text-align:center">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--plum-light);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--plum)">OA</div>
+      <div style="font-weight:500;color:var(--ink);font-size:14px">Owino Aketch</div>
+      <div style="font-size:12px;color:var(--plum);margin-bottom:8px">CEO / Team Lead</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.5">5+ yrs healthcare technology. Former Software Engineer, Jacaranda Health. BSc Computer Software Engineering, UoN + Moringa. Stanford Medicine 25 Program (2024).</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--teal)">JM</div>
+      <div style="font-weight:500;color:var(--ink);font-size:14px">Dr. Jane Vinic Moraa</div>
+      <div style="font-size:12px;color:var(--teal);margin-bottom:8px">Chief Medical Officer</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.5">6+ yrs clinical, OB-GYN specialisation. Former Clinical Officer, Kenyatta National Hospital. MBChB, UoN. KMPDC Licence #12847 (2019).</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--blue)">JK</div>
+      <div style="font-weight:500;color:var(--ink);font-size:14px">Janet Kemunto</div>
+      <div style="font-size:12px;color:var(--blue);margin-bottom:8px">Chief Technical Officer</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.5">8+ yrs distributed systems. Former Senior Developer, MedyLine. BSc Computer Science, Strathmore. Led 3 offline-first mHealth applications.</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--amber-light);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--amber)">LA</div>
+      <div style="font-weight:500;color:var(--ink);font-size:14px">Linet Akinyi</div>
+      <div style="font-size:12px;color:var(--amber);margin-bottom:8px">Chief Community Officer</div>
+      <div style="font-size:11.5px;color:var(--ink3);line-height:1.5">4+ yrs community health programme management. Former Ass. Programme Coordinator, AMREF Health Africa. MPH, Kenya Methodist University. 15,000+ individuals, 8 counties.</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:20px">
+    <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px">Advisory Board</div>
+    <div class="g3">
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:3px">Dr. Louise Ombajo, PhD</div>
+        <div style="font-size:11px;color:var(--plum);margin-bottom:5px">Clinical Advisor</div>
+        <div style="font-size:12px;color:var(--ink3)">Senior Consultant OB-GYN, Mama Lucy Hospital. 15+ years maternal health research. Published on maternal mortality in Africa.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:3px">Mr. Clifford Okoth</div>
+        <div style="font-size:11px;color:var(--teal);margin-bottom:5px">Business Development Advisor</div>
+        <div style="font-size:12px;color:var(--ink3)">Director, Chemolex Green Planet. 17+ years in business operations, strategy, and fundraising.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:3px">Prof. Peter Wakhisi</div>
+        <div style="font-size:11px;color:var(--blue);margin-bottom:5px">Technology Advisor</div>
+        <div style="font-size:12px;color:var(--ink3)">Professor of Computer Science, University of Nairobi. Expert in AI/ML applications for healthcare.</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px">Hiring Plan</div>
+    <div class="g2">
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">IMMEDIATE (6 MONTHS)</div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>Clinical Director — paediatric/maternal specialist</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>Senior Data Scientist — ML/AI focus, health domain</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>CFO — CPA with health-tech or NGO finance experience</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>Biostatistician (part-time/advisory) — for RCT protocol design</div></div>
+      </div>
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">12–18 MONTHS</div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>AI/ML Engineers (×2) — model training and edge deployment</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Country Manager, Uganda — begin market entry preparation</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Product Manager — UX, CHP tool iteration cycles</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Government Relations Lead — full-time county MOU pipeline</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="divider"></div>
+<section class="section" style="margin-bottom:32px">
+  <div class="callout fix">
+    <strong>The one-paragraph version for anyone joining the team:</strong> Maternanet builds the intelligence layer for maternal health at the last mile — turning Kenya's 100,000 Community Health Promoters into a predictive care network by giving them a tool that genuinely reduces their burden. The data is a byproduct of that care, never extracted. Our goal is 1 million longitudinal health records in Kenya by 2030, at which point our Composite Women's Health Index™ becomes individually predictive, our insurance underwriting advantage activates, our pharma distribution network becomes commercially viable, and the platform expands into the full-spectrum women's health operating system we are building toward 2035. The gateway is maternal care. The destination is infrastructure.
+  </div>
+  <div class="g3" style="margin-top:16px">
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE THINGS THAT MUST BE TRUE</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>CHPs use the tool daily because it reduces their burden — not because we pay them to</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Data quality is clinical-grade from the start — not retrofitted at 500K profiles</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Government is a partner — never surprised, never bypassed, never circumvented</div></div>
+    </div>
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE THINGS THAT WILL KILL US</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Scaling before understanding why any CHP leaves the platform</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Triggering credit events without a clinical confirmation layer</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Conflating data volume with data depth — 85K profiles at 40% completeness is not an asset</div></div>
+    </div>
+    <div class="card-sm">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE STRUCTURAL MOATS</div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>100,000 CHPs already exist — we enable distribution, not build it from scratch</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>77% retention — the longitudinal relationship cannot be bought, only earned</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>18-month data depth per cohort — a late entrant cannot compress this with capital</div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page -->
+
+<footer>
+  <div><span class="f-brand">Maternanet Africa Ltd.</span> · University Way, Nairobi · info@maternanet.com</div>
+  <div>Strategic Document v2.0 · April 2026 · Reconciled against Vision Blueprint · CONFIDENTIAL</div>
+</footer>
+
+<script>
+function tog(header) {
+  const body = header.nextElementSibling;
+  const t = header.querySelector('.tl-toggle');
+  if (body.classList.contains('collapsed')) {
+    body.classList.remove('collapsed');
+    t.textContent = '▾';
+  } else {
+    body.classList.add('collapsed');
+    t.textContent = '▸';
+  }
+}
+
+const links = document.querySelectorAll('.nav-link');
+const secs = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (s.getBoundingClientRect().top <= 70) cur = s.id; });
+  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, { passive: true });
+links.forEach(l => l.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.04, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.math-box,.card,.tl-block,.pillar,.risk-row').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(14px)';
+  el.style.transition = 'opacity .4s ease, transform .4s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
