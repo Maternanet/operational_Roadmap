@@ -994,17 +994,17 @@ Waiting until Year 2 collapses the training capacity when it is most needed.
       </div>
       <div class="math-body">
         <div class="eq" style="font-size:11.5px">
-CHT stores data locally in CouchDB before syncing to the server.
-CouchDB local store is readable without server connectivity.
-<span class="cm">──────────────────────────────────────────────────────</span>
+CHT stores data locally in CouchDB before syncing to the server. </br>
+CouchDB local store is readable without server connectivity. </br>
+<span class="cm">─────────</span>
 Maternanet SDK (background service on CHP phone):
-  1. Reads local CouchDB sync state — no network required
-  2. Runs lightweight on-device inference model
-  3. Delivers push notification when risk exceeds threshold
-  4. Notification opens CHT directly to the patient record
-<span class="cm">──────────────────────────────────────────────────────</span>
-CHP never opens a separate app.
-Alert delivery is independent of OpenHIM connectivity.
+  1. Reads local CouchDB sync state — no network required.
+  2. Runs lightweight on-device inference model.
+  3. Delivers push notification when risk exceeds threshold.
+  4. Notification opens CHT directly to the patient record. </br>
+<span class="cm">──────────</span>
+* CHP never opens a separate app.
+* Alert delivery is independent of OpenHIM connectivity.</br>
 <span class="hi">This is not optional infrastructure — it is the product guarantee.</span>
         </div>
       </div>
