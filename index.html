@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maternanet Africa — Strategic Document v2.0. April 2026 Update</title>
+<title>Maternanet Africa — Strategic Document v2.1. May 2026 Update</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -534,6 +534,7 @@ footer .f-brand{color:var(--plum);font-weight:500;}
     <a class="nav-link" href="#problem">Problem</a>
     <a class="nav-link" href="#solution">Solution</a>
     <a class="nav-link" href="#chp-ops">CHP Ops</a>
+    <a class="nav-link" href="#echis">eCHIS Integration</a>
     <a class="nav-link" href="#data">Data Foundation</a>
     <a class="nav-link" href="#path-1m">Path to 1M</a>
     <a class="nav-link" href="#revenue">Revenue</a>
@@ -542,7 +543,7 @@ footer .f-brand{color:var(--plum);font-weight:500;}
     <a class="nav-link" href="#team">Team</a>
   </div>
   <div class="nav-right">
-    <span class="nav-ver">v2.0 · Apr 2026</span>
+    <span class="nav-ver">v2.1 · May 2026</span>
     <span class="nav-badge">INTERNAL</span>
   </div>
 </nav>
@@ -553,7 +554,7 @@ footer .f-brand{color:var(--plum);font-weight:500;}
 <section id="north-star" class="hero">
   <div class="hero-eyebrow fa">Maternanet Africa Ltd. · Nairobi, Kenya</div>
   <h1 class="fa-2">Predictive care,<br>delivered at the <em>last mile.</em></h1>
-  <p class="hero-deck fa-3">We build the intelligence layer for maternal health — turning Community Health Providers (CHPs) into predictive care networks, and transforming every household visit into a structured clinical event that compounds into infrastructure.</p>
+  <p class="hero-deck fa-3">We build the intelligence layer for maternal health — turning Community Health Promoters (CHPs) into predictive care networks, and transforming every household visit into a structured clinical event that compounds into infrastructure. We operate as a mediator between Kenya's government-deployed eCHIS infrastructure and clinical decision intelligence — maximising reach while protecting data depth.</p>
 
   <div class="north-star fa-3" style="animation-delay:.3s">
     <div class="ns-label">North Star — 2035</div>
@@ -697,18 +698,22 @@ footer .f-brand{color:var(--plum);font-weight:500;}
   <div class="card" style="margin-bottom:14px;border-left:3px solid var(--teal)">
     <span class="tag t-teal" style="margin-bottom:8px;display:inline-block">Pillar 2 · Connect</span>
     <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px">Digital Doulas — the Data & Action Network</div>
-    <div style="font-size:13px;color:var(--ink3);margin-bottom:14px">CHPs are not data collectors. They are care coordinators who generate data as a byproduct of genuine service.</div>
+    <div style="font-size:13px;color:var(--ink3);margin-bottom:14px">CHPs are not data collectors. They are care coordinators who generate data as a byproduct of genuine service. In the eCHIS-integrated state, Maternanet operates a <strong style="color:var(--teal)">two-channel data architecture</strong>: the government eCHIS channel for clinical encounter data, and the Maternanet direct channel for depth variables the government system was never designed to capture.</div>
+
+    <div class="callout fix" style="margin-bottom:14px">
+      <strong>Architecture principle — channel discipline:</strong> eCHIS is our distribution channel, not our infrastructure. What flows through OpenHIM is what the government collected. What flows through our channel is what mothers chose to share with us. These are legally and operationally distinct and must live in permanently separate pipes. See Section 04 for the full integration architecture.
+    </div>
 
     <div class="g2" style="margin-bottom:12px">
       <div>
-        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Offline-first mobile tool</strong> — structured ANC visit guide, auto-risk flagging, Bluetooth vitals capture, offline sync. Auto-generates DHIS2 ANC register — the paperwork is done for them.</div></div>
-        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Community-clinic linkage</strong> — when the CWHI™ flags high-risk, the CHP receives an automated nudge. Referral is logged, facility is notified, outcome is tracked. The loop closes.</div></div>
-        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Edge computing architecture</strong> — ML prediction algorithms cached locally. Operates at &lt;1kb/s. 85% model accuracy maintained offline. Patent application filed: Kenya Patent Office #2024/789.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">CHT-integrated workflow (eCHIS channel)</strong> — CHP uses CHT (the CHW app in Kenya's eCHIS stack) as her primary clinical tool. Maternanet receives clinical encounter data via OpenHIM/FHIR R4. Zero parallel entry. The CHP's only additional action is presenting a QR code to the mother at first visit.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">On-device SDK (background service)</strong> — a lightweight Maternanet SDK runs alongside CHT. It reads the local CouchDB sync state, runs the edge inference model on-device, and delivers push notifications when risk crosses threshold. Alert delivery is connectivity-independent. No separate app for the CHP to open.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Bluetooth hardware — single-capture, dual-surface</strong> — BP cuff, MUAC tape, pulse oximeter sync directly to the Maternanet SDK. One capture surfaces as a FHIR Observation in eCHIS and stores a primary record in Maternanet's own data store. No manual entry. The primary record is ours; eCHIS receives a copy.</div></div>
       </div>
       <div>
-        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Multi-modal mother interface</strong> — USSD for 2G / feature phones, Android app for smartphones, SMS nudges for all. Weekly pregnancy tips, danger sign checklist, appointment reminders. Mother's relationship is with Maternanet directly, not only through her CHP.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Mother self-enrolment (Maternanet direct channel)</strong> — eCHIS registration triggers a shadow Maternanet profile. CHP presents a QR code or USSD short code. Mother completes the 23 socioeconomic variables on her own phone — a 5-minute intake. This is the Maternanet consent event. The CHP's incremental burden over her eCHIS workflow: one gesture.</div></div>
+        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Multi-modal mother interface</strong> — USSD for 2G / feature phones, Android app for smartphones, SMS nudges for all. Weekly pregnancy tips, danger sign checklist, appointment reminders, postpartum check-ins. The direct relationship between Maternanet and the mother — not mediated solely through the CHP — is the mechanism for postpartum re-engagement and longitudinal depth.</div></div>
         <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">DHIS2 + SHA integration</strong> — auto-submission to Kenya's national health data system (DHIS2) and the Social Health Authority (SHA) for claims matching. Every SHA-covered birth creates a matched outcome record — the gold standard for longitudinal validation.</div></div>
-        <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div><strong style="color:var(--ink)">Supervisor dashboard</strong> — CHAs (CHP supervisors) see real-time CHP performance, visit compliance, and risk flag response rates. Recognition and incentive system tied to quality scores, not just visit counts.</div></div>
       </div>
     </div>
   </div>
@@ -777,6 +782,10 @@ footer .f-brand{color:var(--plum);font-weight:500;}
     <span class="sec-aside">The ground truth behind caseload, training, and incentives.</span>
   </div>
 
+  <div class="callout fix" style="margin-bottom:16px">
+    <strong>May 2026 discovery — eCHIS is already deployed:</strong> In most regions, CHPs already use eCHIS (Kenya MOH's Electronic Community Health Information System, built on Community Health Toolkit). This resolved two risks simultaneously — double entry and government competition — and revealed a superior architecture: Maternanet as the intelligence mediator between eCHIS data and clinical decision support. The full integration architecture is documented in Section 04.
+  </div>
+
   <div class="compare-wrap">
     <div class="compare-head">
       <div>Parameter</div>
@@ -807,6 +816,16 @@ footer .f-brand{color:var(--plum);font-weight:500;}
       <div class="cr-label">Incentive model</div>
       <div class="cr-old">Performance-based incentives.</div>
       <div class="cr-new">Up to 97% responded exceptionally well to Airtime + data bundle credited per complete record (via Safaricom/Airtel API). This is our operational fuel, not a cash payment. Avoids "paid to extract data" perception.</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Enrolment mechanism</div>
+      <div class="cr-old">CHP-led parallel enrolment into Maternanet — separate profile creation, intake survey, and longitudinal relationship setup. Friction: double-entry. Risk: government competition.</div>
+      <div class="cr-new">eCHIS registration triggers a shadow Maternanet profile via OpenHIM FHIR push. CHP's only additional action: present a QR code or USSD short code at first visit. Mother self-enrols on her own phone — completing the 23 socioeconomic variables and providing explicit consent. Enrolment shifts from a CHP burden to a mother action. Operationally lighter, legally stronger.</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-label">Primary CHP tool</div>
+      <div class="cr-old">Standalone Maternanet mobile app — parallel to any government system. Adoption required replacing existing workflow.</div>
+      <div class="cr-new">CHT (eCHIS app) remains the CHP's primary clinical tool. Maternanet SDK runs as a background service alongside CHT. Clinical encounter data flows through eCHIS. Depth variables flow through a separate Maternanet direct channel. CHP workflow change: one gesture — the QR code at first visit.</div>
     </div>
   </div>
 
@@ -857,6 +876,177 @@ Waiting until Year 2 collapses the training capacity when it is most needed.
 Phone access: 78% of Kenya CHPs already own a smartphone (GSMA 2024).
 BYOD + Kshs 300/mo data bundle = <span class="ok">Option B is correct — no device procurement needed at scale.</span>
 Rugged tablets are reserved for extreme rural areas with &lt;50% smartphone penetration only.
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<!-- eCHIS INTEGRATION ARCHITECTURE -->
+<section id="echis" class="section">
+  <div class="section-head">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">eCHIS Integration Architecture</h2>
+    <span class="sec-aside">Intelligence mediator — not a parallel system, not a dependency.</span>
+  </div>
+
+  <div class="callout fix">
+    <strong>The strategic reframe:</strong> eCHIS is our distribution channel, not our infrastructure. We integrate with it to eliminate friction and build government trust — not to outsource our core capabilities to a system we do not control. Everything that makes Maternanet strategically valuable — the model, the longitudinal depth, the diagnostic layer, the direct mother relationship — lives in our stack, not theirs.
+  </div>
+
+  <!-- TWO CHANNEL ARCHITECTURE -->
+  <div style="margin:24px 0 16px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px">The Two-Channel Data Architecture</div>
+    <div class="callout danger" style="margin-bottom:14px">
+      <strong>Non-negotiable boundary:</strong> OpenHIM is a government middleware router. It logs and audits every transaction that passes through it — by design, so the MOH has visibility into all health data flows. Any data that passes through OpenHIM is accessible to the government and any accredited mediator. The Maternanet direct channel must never route through OpenHIM. These are permanently separate pipes.
+    </div>
+    <div class="g2">
+      <div class="pillar" style="border-top:3px solid var(--teal)">
+        <div class="pillar-head">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+            <span class="tag t-teal">Channel A — eCHIS / Government</span>
+          </div>
+          <div style="font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--ink)">Clinical encounter data via OpenHIM</div>
+        </div>
+        <div class="pillar-body">
+          <p>Data that originates in CHT — BP readings entered by the CHP, ANC visit records, referral outcomes, danger sign flags. This data flows through OpenHIM because it originated in a government system. The government has legitimate claim to it. We receive it, we do not own it, and we never pretended to.</p>
+          <p>What OpenHIM carries: FHIR Patient resources, FHIR Observations from CHP-entered clinical data, ANC encounter records, referral outcomes.</p>
+          <p>What OpenHIM does not carry: socioeconomic intake variables, postpartum self-reports, Bluetooth hardware vitals (primary record), mother's wallet interactions, consumer app behavioural signals.</p>
+        </div>
+      </div>
+      <div class="pillar" style="border-top:3px solid var(--plum)">
+        <div class="pillar-head">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+            <span class="tag t-plum">Channel B — Maternanet Direct</span>
+          </div>
+          <div style="font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--ink)">Depth variables via consent-based direct channel</div>
+        </div>
+        <div class="pillar-body">
+          <p>Data that originates outside eCHIS and is generated through the mother's direct relationship with Maternanet. Never touches OpenHIM. Flows directly from the capture point to our own API, encrypted in transit, stored in our own data store, under the mother's individual consent.</p>
+          <p>What this channel carries: 23 socioeconomic intake variables (collected at self-enrolment), postpartum check-ins via USSD/app, Bluetooth hardware vitals (primary record; copy sent to eCHIS), micro-savings wallet interactions, consumer app engagement signals.</p>
+          <p>The government has no claim to this data because it was never collected through their system. It was generated by a woman interacting with a private consumer product she chose to use. ODPC DPA 2019 distinguishes between data collected under a public function and data collected under private consent. These are genuinely different things.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HARDWARE VITALS - EDGE CASE -->
+  <div class="callout warn" style="margin-bottom:16px">
+    <strong>Bluetooth hardware vitals — ownership framing:</strong> When a CHP takes a BP reading using Maternanet hardware during an eCHIS visit, the reading belongs to Channel B. The hardware is a Maternanet device used voluntarily by the CHP; the mother has consented to Maternanet data collection. The primary record lives in our store. We additionally choose to send a copy to eCHIS through OpenHIM as a value-add to the government system. The copy flows to them. Not the other way around. This framing matters: when pharma pays for longitudinal vitals linked to socioeconomic profiles, that data must be unambiguously ours to license. If the original record lived in OpenHIM, we cannot license it.
+  </div>
+
+  <!-- ENROLMENT MECHANISM -->
+  <div style="margin-bottom:24px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px">The Enrolment Mechanism — End to End</div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="background:var(--ink);padding:11px 18px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,0.7)">INTEGRATED ENROLMENT FLOW — FROM ECHIS REGISTRATION TO MATERNANET LONGITUDINAL RECORD</div>
+      <div style="padding:18px">
+        <div class="consent-step">
+          <div class="cs-num">01</div>
+          <div class="cs-body">
+            <h6>CHP registers mother in CHT (eCHIS) — standard workflow, no change</h6>
+            <p>CHP conducts ANC visit, enters clinical data into CHT as she normally would. OpenHIM receives a FHIR Patient resource push. Maternanet creates a shadow profile — incomplete, but sufficient to begin tracking. The CHP has done nothing beyond her existing eCHIS workflow.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">02</div>
+          <div class="cs-body">
+            <h6>CHP presents QR code or USSD short code — the single added gesture</h6>
+            <p>At the end of the visit, the CHP shows the mother a printed QR code or reads her a USSD short code (*384#). This is the only incremental action we ask of the CHP beyond her existing eCHIS workflow. It takes under 30 seconds.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">03</div>
+          <div class="cs-body">
+            <h6>Mother self-enrols on her own phone — the Maternanet consent event</h6>
+            <p>Mother scans the QR code or dials *384#. She completes a 5-minute intake on her own phone: the 23 socioeconomic variables that eCHIS does not capture. She reads and accepts the consent statement in her language. This is the activating event for the Maternanet direct channel. A mother who enrols herself is more likely to re-engage postpartum than one enrolled by a CHP without fully understanding why. Conversion will not be 100% — mothers who do not self-enrol still contribute eCHIS-origin data to the inference layer. Those who self-enrol become the deep longitudinal cohort.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">04</div>
+          <div class="cs-body">
+            <h6>Antenatal arc — dual-channel, zero burden</h6>
+            <p>eCHIS captures clinical encounters at each CHP visit. Maternanet receives them via OpenHIM FHIR push, runs the inference model, and returns risk alerts to the CHP's CHT task card. Bluetooth hardware vitals sync directly to the Maternanet SDK; a copy surfaces in eCHIS. Mother receives weekly check-ins directly on her phone via USSD or app. No double entry at any point.</p>
+          </div>
+        </div>
+        <div class="consent-step">
+          <div class="cs-num">05</div>
+          <div class="cs-body">
+            <h6>Postpartum arc — mother-direct, CHP-visible</h6>
+            <p>After birth, the postpartum arc begins automatically on the mother's phone. Week-by-week check-ins structured as brief conversations — not forms. CHP visits continue to be captured in eCHIS. CHP sees postpartum engagement scores for her mothers in the CHT task card but is not the bottleneck for data capture. Nine months later: an 18-month longitudinal record deeper than anything eCHIS holds, built without a single moment of double entry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ON-DEVICE SDK -->
+  <div style="margin-bottom:24px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px">On-Device SDK — Connectivity-Independent Alert Delivery</div>
+    <div class="callout danger" style="margin-bottom:12px">
+      <strong>The offline alert gap is operationally critical — not medium impact:</strong> If a CHP is in a rural area with poor connectivity and the eCHIS sync is delayed 24–72 hours, the risk alert arrives too late to matter. A CHP who learns within months that alerts are unreliable stops acting on them. The core behaviour change collapses. The downstream clinical outcomes — and every commercial argument — go with it.
+    </div>
+    <div class="math-box">
+      <div class="math-head">
+        <span class="mh-title">SDK architecture — minimum footprint, maximum reliability</span>
+        <span class="mh-tag">technical constraint</span>
+      </div>
+      <div class="math-body">
+        <div class="eq" style="font-size:11.5px">
+CHT stores data locally in CouchDB before syncing to the server.
+CouchDB local store is readable without server connectivity.
+<span class="cm">──────────────────────────────────────────────────────</span>
+Maternanet SDK (background service on CHP phone):
+  1. Reads local CouchDB sync state — no network required
+  2. Runs lightweight on-device inference model
+  3. Delivers push notification when risk exceeds threshold
+  4. Notification opens CHT directly to the patient record
+<span class="cm">──────────────────────────────────────────────────────</span>
+CHP never opens a separate app.
+Alert delivery is independent of OpenHIM connectivity.
+<span class="hi">This is not optional infrastructure — it is the product guarantee.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO-MODEL ARCHITECTURE -->
+  <div style="margin-bottom:24px">
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:14px">Two-Model Architecture — Protecting CWHI™ Integrity</div>
+    <div class="callout warn" style="margin-bottom:12px">
+      <strong>The data quality gap risk:</strong> The CWHI™ was trained on data shaped by our incentive structure, our training protocol, and our completeness standards. eCHIS data has different missing-field patterns, different entry habits, different error distributions. Running the same model on eCHIS-origin data may produce confident-looking risk scores that are less accurate — which is more dangerous than no score at all.
+    </div>
+    <div class="g2">
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">CWHI™ — MATERNANET-ENROLLED COHORT</div>
+        <div style="font-size:12px;color:var(--ink2);line-height:1.55">Trained on self-enrolled mothers with full 85-variable records. Current: 79% recall / 81% precision. This model is never compromised by eCHIS data quality variability. It remains the validated clinical benchmark and the commercial asset cited to investors, pharma, and insurers.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:6px">eCHIS INFERENCE LAYER — SEPARATE MODEL</div>
+        <div style="font-size:12px;color:var(--ink2);line-height:1.55">Trained and validated specifically on eCHIS-origin data. Explicitly acknowledged as a separate model with its own performance baseline. Validation gate before Phase 2 goes live: minimum 1 county, 6 months parallel data (matched eCHIS and Maternanet records), performance must meet a defined floor. If the floor is not met, Phase 2 does not go live — regardless of government timeline pressure.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT THIS SHIFTS -->
+  <div>
+    <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink);margin-bottom:12px">The Strategic Reframe — What This Changes</div>
+    <div class="callout" style="margin-bottom:12px">
+      The v2.0 document positioned the CHP as the primary relationship with the mother. This architecture shifts that. The CHP remains the clinical anchor — the person who visits, measures, refers. But the longitudinal relationship — the thing that generates postpartum depth, re-engagement, and eventually the 1M record asset — is directly between Maternanet and the mother. The CHP is the entry point, not the conduit.
+    </div>
+    <div class="g3">
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">CHP churn no longer collapses records</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">In the v2.0 model, a CHP departure interrupted the longitudinal relationship. In the integrated model, the mother's direct channel continues regardless of CHP continuity. Records keep growing. This directly mitigates the churn risk documented in Section 10.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">The moat shifts but deepens</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">Three compounding moat layers: (1) consent-based direct dataset — data government cannot access without our permission; (2) the inference layer trained on linked eCHIS + direct channel data — the combination is ours and took years to build; (3) the direct consent relationship with the mother — reaches her for insurance, fertility, next-pregnancy products without CHP mediation.</div>
+      </div>
+      <div class="card-sm">
+        <div style="font-weight:500;color:var(--ink);font-size:13px;margin-bottom:5px">eCHIS reduces infrastructure cost ~90%</div>
+        <div style="font-size:12px;color:var(--ink3);line-height:1.5">eCHIS handles data collection infrastructure for clinical encounters. We focus entirely on intelligence: model training, inference delivery, direct-channel depth capture, and the consumer product that sustains the mother relationship. The government built our distribution. We build our moat on top of it.</div>
       </div>
     </div>
   </div>
@@ -939,8 +1129,8 @@ Rugged tablets are reserved for extreme rural areas with &lt;50% smartphone pene
         <div class="consent-step">
           <div class="cs-num">01</div>
           <div class="cs-body">
-            <h6>Verbal consent in mother tongue</h6>
-            <p>CHP reads a standardised 3-sentence consent statement in Kiswahili, Kikuyu, Dholuo, or Kalenjin (language determined during onboarding). Statement: what data is collected, who sees it, and how to stop. No signatures — verbal consent logged as audio timestamp in app. Compliant with DPA 2019 oral consent provisions.</p>
+            <h6>Mother-initiated consent via QR / USSD (post-eCHIS enrolment)</h6>
+            <p>Following eCHIS registration, the CHP presents the mother with a QR code or USSD short code. The mother initiates the Maternanet consent flow on her own phone — reading (or hearing, via voice guidance) the standardised consent statement in Kiswahili, Kikuyu, Dholuo, or Kalenjin. Statement: what data is collected beyond eCHIS, who sees it, and how to stop. Verbal consent logged as audio timestamp where literacy is a barrier. Compliant with DPA 2019 oral consent provisions. Critically: the consent event is mother-initiated, not CHP-completed — making it legally stronger and driving higher postpartum re-engagement.</p>
           </div>
         </div>
         <div class="consent-step">
@@ -1191,8 +1381,8 @@ profiles by 2030 = the margin that clears 1M.
         </tr>
         <tr>
           <td><strong>Technology</strong></td><td><span class="mono">$202,500</span></td><td>36.8%</td>
-          <td style="font-size:12px">CWHI™ model refinement · offline architecture · SHA integration · USSD expansion · security hardening</td>
-          <td style="font-size:12px">Recall 79% → 85%. SHA-ready by Q3 2026.</td>
+          <td style="font-size:12px">CWHI™ model refinement · offline architecture · SHA integration · USSD expansion · security hardening · <strong>eCHIS OpenHIM mediator build · on-device SDK · FHIR R4 integration layer · eCHIS Inference Layer (separate model) · QR/USSD self-enrolment flow</strong></td>
+          <td style="font-size:12px">Recall 79% → 85%. SHA-ready by Q3 2026. eCHIS Phase 1 sandbox live Q3 2026. ODPC DPA registration Q2 2026 (hard gate for live patient data).</td>
         </tr>
         <tr>
           <td><strong>Market expansion</strong></td><td><span class="mono">$144,500</span></td><td>26.3%</td>
@@ -1438,11 +1628,11 @@ profiles by 2030 = the margin that clears 1M.
         <td><span class="tag t-teal">Validated</span></td>
       </tr>
       <tr>
-        <td><strong>Medic Mobile</strong><br><span style="font-size:11px;color:var(--ink4)">Global</span></td>
-        <td style="font-size:12px">Open-source, CHW tools, DHIS2 experience.</td>
-        <td style="font-size:12px">Generic (not maternal-specialist). No predictive AI layer. NGO dependency, not commercial.</td>
-        <td style="font-size:12px">CWHI™ predictive layer. Commercial model. Data asset compounds — open-source cannot.</td>
-        <td><span class="tag t-amber">Inferred</span></td>
+        <td><strong>Medic Mobile / CHT</strong><br><span style="font-size:11px;color:var(--ink4)">Global</span></td>
+        <td style="font-size:12px">Open-source, CHW tools, DHIS2 experience. CHT is the app underlying Kenya's eCHIS deployment.</td>
+        <td style="font-size:12px">Generic (not maternal-specialist). No predictive AI layer. NGO dependency, not commercial. Cannot capture depth variables or build longitudinal asset.</td>
+        <td style="font-size:12px">We integrate with CHT rather than competing with it — Maternanet is the intelligence layer on top of their distribution infrastructure. CWHI™ predictive layer. Consent-based depth channel. Commercial model. This is the correct relationship: CHT as pipe, Maternanet as intelligence.</td>
+        <td><span class="tag t-teal">Resolved — partner</span></td>
       </tr>
       <tr>
         <td><strong>Late entrant (funded)</strong></td>
@@ -1521,11 +1711,36 @@ profiles by 2030 = the margin that clears 1M.
         </div>
       </div>
 
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>eCHIS data contaminating CWHI™ model integrity</h5>
+          <p>NEW (v2.1): The CWHI™ was trained on data shaped by our incentive structure and completeness standards. eCHIS data has different missing-field patterns and entry behaviours. Running the same model on eCHIS-origin data without validation may produce confident-looking risk scores with degraded accuracy — more dangerous than no score at all. Silent degradation is the failure mode.</p>
+          <p class="risk-fix">Two-model architecture: CWHI™ remains exclusively for self-enrolled cohort. A separate eCHIS Inference Layer is trained on eCHIS-origin data with its own performance baseline. Hard validation gate before Phase 2 go-live: 1 county, 6 months of parallel matched data, performance must meet a defined floor. If the floor is not met, Phase 2 does not proceed — regardless of government timeline pressure. This gate is non-negotiable and must be written into the roadmap, not left as a judgment call.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>OpenHIM data ownership erosion — depth variables routed through government infrastructure</h5>
+          <p>NEW (v2.1): OpenHIM logs and audits every transaction that passes through it. If depth variables — socioeconomic intake, hardware vitals (primary record), postpartum self-reports — are routed through OpenHIM, the government has logged access to data that should be exclusively ours. This destroys the consent-based data ownership argument and the ability to license that data commercially.</p>
+          <p class="risk-fix">Hard channel separation enforced at the architecture level: Channel A (eCHIS-origin clinical data) through OpenHIM; Channel B (Maternanet direct-channel depth data) never touches OpenHIM. Hardware vitals: Maternanet SDK holds the primary record; a copy is optionally sent to eCHIS. This is not a policy position — it must be enforced in the data pipeline with no exceptions. Channel B routes through Maternanet's own API, encrypted in transit, stored in our own data store under individual mother consent.</p>
+        </div>
+      </div>
+
+      <div class="risk-row">
+        <span class="risk-pill" style="background:var(--amber-light);color:var(--amber)">HIGH</span>
+        <div class="risk-body">
+          <h5>Offline alert delivery gap — connectivity-dependent risk notification</h5>
+          <p>NEW (v2.1): If the CHP's risk alert depends on OpenHIM sync completing, alert delivery in low-connectivity areas can be delayed 24–72 hours. A CHP who learns within months that alerts are unreliable stops acting on them. The core behaviour change — the one that justifies every clinical and commercial claim — collapses silently before it can be measured.</p>
+          <p class="risk-fix">On-device SDK running as a background service alongside CHT. The SDK reads the local CouchDB sync state (CHT stores data locally before server sync — this is readable without connectivity), runs a lightweight on-device inference model, and delivers a push notification when risk crosses threshold. Alert delivery is fully independent of OpenHIM or server connectivity. This is not optional infrastructure — it is the product guarantee that makes the CHP tool genuinely useful in the environments we are deploying into.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<!-- TEAM -->
 <section id="team" class="section">
   <div class="section-head">
     <span class="sec-num">10</span>
@@ -1611,26 +1826,26 @@ profiles by 2030 = the margin that clears 1M.
 <div class="divider"></div>
 <section class="section" style="margin-bottom:32px">
   <div class="callout fix">
-    <strong>The one-paragraph version for anyone joining the team:</strong> Maternanet builds the intelligence layer for maternal health at the last mile — turning Kenya's 100,000 Community Health Promoters into a predictive care network by giving them tools that genuinely reduce their burden. The data is a byproduct of that care, never extracted. Our goal is 1 million longitudinal health records in Kenya by 2030, at which point our Composite Women's Health Index™ becomes individually predictive, our insurance underwriting advantage activates, our pharma distribution network becomes commercially viable, and the platform expands into the full-spectrum women's health operating system we are building toward 2035. The gateway is maternal care. The destination is infrastructure.
+    <strong>The one-paragraph version for anyone joining the team:</strong> Maternanet builds the intelligence layer for maternal health at the last mile — operating as a mediator between Kenya's government-deployed eCHIS infrastructure and clinical decision support for CHPs and clinics. We do not compete with the government system; we make it smart. CHPs use eCHIS as normal; our on-device SDK delivers connectivity-independent risk alerts; mothers self-enrol into a direct longitudinal relationship with Maternanet via a QR code gesture. The depth variables eCHIS was never designed to capture — socioeconomic intake, postpartum self-reports, hardware vitals, behavioural signals — flow through our own consent-based direct channel that the government does not touch. Our goal is 1 million longitudinal profiles in Kenya by 2030, at which point the CWHI™ becomes individually predictive, insurance underwriting activates, pharma distribution becomes commercially viable, and the platform expands into the full-spectrum women's health operating system we are building toward 2035. The gateway is maternal care. The intelligence is our moat. The destination is infrastructure.
   </div>
   <div class="g3" style="margin-top:16px">
     <div class="card-sm">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE THINGS THAT MUST BE TRUE</div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>CHPs use the tool daily because it reduces their burden — not because we pay them to.</div></div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Data quality is clinical-grade from the start — not retrofitted at 500K profiles.</div></div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Government is a partner — never surprised, never bypassed, never circumvented.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>CHPs use the tool daily because it reduces their burden — not because we pay them to. In the eCHIS state, this means the CHP's incremental action is one gesture, and alerts arrive reliably regardless of connectivity.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Data quality is clinical-grade from the start — the two-channel architecture must be enforced at the pipeline level: eCHIS data feeds the eCHIS Inference Layer, never the CWHI™. Channel B depth data never routes through OpenHIM.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--teal)"></div><div>Government is a partner — never surprised, never bypassed, never circumvented. eCHIS integration is the proof: we built on their infrastructure, not against it.</div></div>
     </div>
     <div class="card-sm">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE THINGS THAT WILL KILL US.</div>
       <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Scaling before understanding why any CHP leaves the platform.</div></div>
       <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Triggering credit events without a clinical confirmation layer.</div></div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Conflating data volume with data depth — 85K profiles at 40% completeness is not an asset.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--coral)"></div><div>Routing Channel B depth data through OpenHIM — or running the CWHI™ on eCHIS data without a validated separate model. Either collapses the commercial data asset or produces clinically dangerous false confidence.</div></div>
     </div>
     <div class="card-sm">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--ink4);margin-bottom:8px">THREE STRUCTURAL MOATS</div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>100,000 CHPs already exist — we enable distribution, not build it from scratch.</div></div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>77% retention — the longitudinal relationship cannot be bought, only earned.</div></div>
-      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>18-month data depth per cohort — a late entrant cannot compress this with capital.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>100,000 CHPs already exist — eCHIS is already deployed to them. We add intelligence on top of government distribution, not build distribution from scratch.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>18-month consent-based depth per cohort — a late entrant cannot compress this with capital, and no government system captures the socioeconomic + postpartum + behavioural variables that make the record commercially valuable.</div></div>
+      <div class="pillar-item"><div class="pillar-dot" style="background:var(--plum)"></div><div>Direct consent relationship with the mother — data depth that does not degrade when a CHP leaves, and a direct channel for insurance, fertility, and next-pregnancy products that bypasses any intermediary.</div></div>
     </div>
   </div>
 </section>
@@ -1639,7 +1854,7 @@ profiles by 2030 = the margin that clears 1M.
 
 <footer>
   <div><span class="f-brand">Maternanet Africa Ltd.</span> · University Way, Nairobi · info@maternanet.com</div>
-  <div>Strategic Document v2.0 · April 2026 · Reconciled with the Vision Blueprint · CONFIDENTIAL</div>
+  <div>Strategic Document v2.1 · May 2026 · eCHIS Integration Update · CONFIDENTIAL</div>
 </footer>
 
 <script>
